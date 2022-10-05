@@ -15,31 +15,29 @@ int main(int argc, char *argv[]) {
 	using namespace fst;
 	using fst::script::ArcSort;
 	try {
-		const char *usage = "Usage: ./mkgraph [options] <lang_dir> <nnet_dir> <grammar-fst> <out-fst> [CD-size]\n";
+		const char *usage = "Usage: ./mkgraph [options] <proto-dir> <grammar-fst> <out-fst>\n";
 
 		ParseOptions po(usage);
 		po.Read(argc, argv);
-		if (po.NumArgs() < 4) {
+		if (po.NumArgs() != 3) {
 			po.PrintUsage();
 			return 1;
 		}
 
-		int32 N=3, P = 1;
+		int32 N = 3, P = 1;
 		float transition_scale = 1.0;
 		float self_loop_scale = 0.1;
 
-		std::string lang_dir = po.GetArg(1),
-					nnet_dir = po.GetArg(2),
-					grammar_fst_filename = po.GetArg(3),
-					out_filename = po.GetArg(4);
-                N = std::stoi(po.GetOptArg(5));
+		std::string proto_dir = po.GetArg(1),
+					grammar_fst_filename = po.GetArg(2),
+					out_filename = po.GetArg(3);
 
-		std::string lang_fst_filename = lang_dir + "/langdir/L.fst",
-			lang_disambig_fst_filename = lang_dir + "/langdir/L_disambig.fst",
-			disambig_phones_filename = lang_dir + "/langdir/phones/disambig.int",
-			model_filename = nnet_dir + "/final.mdl",
-			tree_filename = nnet_dir + "/tree",
-			words_filename = nnet_dir + "/graph_pp/words.txt";
+		std::string lang_fst_filename = proto_dir + "/langdir/L.fst",
+			lang_disambig_fst_filename = proto_dir + "/langdir/L_disambig.fst",
+			disambig_phones_filename = proto_dir + "/langdir/phones/disambig.int",
+			model_filename = proto_dir + "/tdnn_7b_chain_online/final.mdl",
+			tree_filename = proto_dir + "/tdnn_7b_chain_online/tree",
+			words_filename = proto_dir + "/tdnn_7b_chain_online/graph_pp/words.txt";
 
 		if (!std::ifstream(lang_fst_filename.c_str())) {
 			std::cerr << "expected " << lang_fst_filename << " to exist" << std::endl;
@@ -170,7 +168,7 @@ int main(int argc, char *argv[]) {
 
 		// add-self-loops
 		std::vector<int32> null_disambig_syms;
-         	AddSelfLoops(trans_model,
+		AddSelfLoops(trans_model,
 	                 null_disambig_syms,
 	                 self_loop_scale,
 	                 true,

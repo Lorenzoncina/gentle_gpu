@@ -1,7 +1,7 @@
 from queue import Queue
 from gentle import standard_kaldi
 
-def build(resources, nthreads=4, hclg_path=None):
+def build(resources, nthreads=4, hclg_path=None,  lang='en'):
 
     if hclg_path is None: hclg_path = resources.full_hclg_path
 
@@ -10,6 +10,7 @@ def build(resources, nthreads=4, hclg_path=None):
         kaldi_queue.put(standard_kaldi.Kaldi(
             resources.nnet_gpu_path,
             hclg_path,
-            resources.proto_langdir)
+            resources.proto_langdir,
+            lang)
         )
     return kaldi_queue

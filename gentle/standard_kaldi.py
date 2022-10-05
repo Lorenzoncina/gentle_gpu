@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 STDERR = subprocess.DEVNULL
 
 class Kaldi:
-    def __init__(self, nnet_dir=None, hclg_path=None, proto_langdir=None):
+    def __init__(self, nnet_dir=None, hclg_path=None, proto_langdir=None, lang='en'):
         cmd = [EXECUTABLE_PATH]
         
         if nnet_dir is not None:

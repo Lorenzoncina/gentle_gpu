@@ -11,5 +11,5 @@ ext/.depend.mk
 webdata/
 gentle.egg-info/
 exp/
-ext/k3
-ext/m3
+ext/k3_gentle_original
+ext/m3_gentle_original

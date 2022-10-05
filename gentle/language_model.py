@@ -94,7 +94,7 @@ def make_bigram_lm_fst(word_sequences, **kwargs):
 
     return output.encode()
 
-def make_bigram_language_model(kaldi_seq, proto_langdir, **kwargs):
+def make_bigram_language_model(kaldi_seq, proto_langdir, nnet_gpu_path, **kwargs):
     """Generates a language model to fit the text.
 
     Returns the filename of the generated language model FST.
@@ -111,12 +111,20 @@ def make_bigram_language_model(kaldi_seq, proto_langdir, **kwargs):
     txt_fst_file.close()
 
     hclg_filename = tempfile.mktemp(suffix='_HCLG.fst')
+
+    if kwargs['lang'] == 'es'  or kwargs['lang'] == "ar" or kwargs['lang'] == "zh" or kwargs['lang'] == "ru" or kwargs['lang'] == "pt" or kwargs['lang'] == "it" or kwargs['lang'] == "en_wipo" or kwargs['lang'] == "fr":
+        context_dep = '2'
+    else:
+        context_dep = '2'
+
     try:
         devnull = open(os.devnull, 'wb')
         subprocess.check_output([MKGRAPH_PATH,
                         proto_langdir,
+                        nnet_gpu_path,
                         txt_fst_file.name,
-                        hclg_filename],
+                        hclg_filename,
+                        context_dep],
                         stderr=devnull)
     except Exception as e:
         try:
@@ -125,7 +133,8 @@ def make_bigram_language_model(kaldi_seq, proto_langdir, **kwargs):
             pass
         raise e
     finally:
-        os.unlink(txt_fst_file.name)
+        pass
+        #os.unlink(txt_fst_file.name)
 
     return hclg_filename
 
