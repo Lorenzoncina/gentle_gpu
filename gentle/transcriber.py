@@ -26,15 +26,37 @@ class MultiThreadedTranscriber:
 
         # 0 -create a folder in kaldi/egs/wsj/data/ for this decoding job
         gentle_working_dir = os.getcwd()
-        os.chdir('ext/kaldi/egs/wsj/s5/data')
-        #create a new folder for this job where all kaldi files are then generated
         audio_file_path_list = wavfile_path.split('/')
         audio_file_name = audio_file_path_list[len(audio_file_path_list)-1]
         job_folder_name = audio_file_name.split('.')[0]+"_decoding_job"
+
+        # 0.1 -create ivector.conf which is the configuration needed to compute ivector in the gpu decoder.
+        os.chdir('ext/kaldi/egs/wsj/s5/conf')
+        conf_path_name = job_folder_name + "_ivectors_conf"
+        try:
+            os.mkdir(conf_path_name)
+        except FileExistsError:
+            pass
+
+        ivector_file_name = 'ivector.conf'
+        os.chdir(conf_path_name)
+        with open(ivector_file_name, 'w') as f:
+            cmvn_config = '--cmvn_config=conf/online_cmvn.conf\n'
+            f.write(cmvn_config)
+            f.write('--ivector-period=10\n')
+            splice_config='--splice-config=conf/splice.conf\n'
+            f.write(splice_config)
+            text_list = ['--lda-matrix=exp/nnet3/extractor//final.mat\n','--global-cmvn-stats=exp/nnet3/extractor//global_cmvn.stats\n', '--diag-ubm=exp/nnet3/extractor//final.dubm\n','--ivector-extractor=exp/nnet3/extractor//final.ie\n', '--num-gselect=5\n', '--min-post=0.025\n', '--posterior-scale=0.1\n', '--max-remembered-frames=1000\n','--max-count=0\n' ]
+            f.writelines(text_list)
+
+        #create a new folder for this job where all kaldi files are then generated
+        os.chdir('../../data')
+        print(os.getcwd())
         try:
             os.mkdir(job_folder_name)
         except FileExistsError:
             pass
+
     
 
         # 1 - create spk2utt and utt2spk files (in this case we don’t care about designating different speaker ids, so speaker id is equal to utterance id)
