@@ -31,7 +31,7 @@ class MultiThreadedTranscriber:
         job_folder_name = audio_file_name.split('.')[0]+"_decoding_job"
 
         # 0.1 -create ivector.conf which is the configuration needed to compute ivector in the gpu decoder.
-        os.chdir('ext/kaldi/egs/wsj/s5/conf')
+        os.chdir('kaldi_decoding/conf')
         conf_path_name = job_folder_name + "_ivectors_conf"
         try:
             os.mkdir(conf_path_name)
