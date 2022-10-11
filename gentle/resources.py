@@ -6,7 +6,7 @@ from . import metasentence
 
 class Resources():
 
-    def __init__(self):
+    def __init__(self, lang):
         
          self.lang = lang
 
@@ -52,15 +52,15 @@ class Resources():
 
 
 
-        def require_dir(path):
-            if not os.path.isdir(path):
-                raise RuntimeError("No resource directory %s.  Check %s environment variable?" % (path, ENV_VAR))
+         def require_dir(path):
+             if not os.path.isdir(path):
+                 raise RuntimeError("No resource directory %s.  Check %s environment variable?" % (path, ENV_VAR))
 
 
-        require_dir(self.proto_langdir)
-        require_dir(self.nnet_gpu_path)
+         require_dir(self.proto_langdir)
+         require_dir(self.nnet_gpu_path)
 
-        with open(os.path.join(self.proto_langdir, "langdir", "words.txt")) as fh:
-            self.vocab = metasentence.load_vocabulary(fh)
+         with open(os.path.join(self.proto_langdir, "langdir", "words.txt")) as fh:
+             self.vocab = metasentence.load_vocabulary(fh)
 
 
