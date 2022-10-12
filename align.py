@@ -34,12 +34,17 @@ parser.add_argument(
 parser.add_argument(
         'txtfile', type=str,
         help='transcript text file')
+parser.add_argument(
+        '--device', type=str,
+        help='Decoder type between cpu and gpu one')
+
 args = parser.parse_args()
 
 log_level = args.log.upper()
 logging.getLogger().setLevel(log_level)
 
 lang = args.lang
+decoder_type = args.device
 disfluencies = set(['uh', 'um'])
 
 def on_progress(p):
@@ -56,7 +61,7 @@ logging.info("converting audio to 8K sampled wav")
 with gentle.resampled(args.audiofile) as wavfile:
     logging.info("starting alignment")
     aligner = gentle.ForcedAligner(resources, transcript, nthreads=args.nthreads, disfluency=args.disfluency, conservative=args.conservative, disfluencies=disfluencies, lang=lang)
-    result = aligner.transcribe(wavfile, args.audiofile, progress_cb=on_progress, logging=logging)
+    result = aligner.transcribe(wavfile, args.audiofile, progress_cb=on_progress, logging=logging, device = decoder_type)
 
 fh = open(args.output, 'w', encoding="utf-8") if args.output else sys.stdout
 fh.write(result.to_json(indent=2))
