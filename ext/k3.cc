@@ -16,9 +16,11 @@
 #include "lat/word-align-lattice.h"
 #include "nnet3/decodable-simple-looped.h"
 
+/*
 #ifdef HAVE_CUDA
 #include "cudamatrix/cu-device.h"
 #endif
+*/
 
 const int arate = 16000;
 
@@ -106,6 +108,7 @@ int main(int argc, char *argv[]) {
       return EXIT_FAILURE;
     }
 
+/*
 #ifdef HAVE_CUDA
     fprintf(stdout, "Cuda enabled\n");
     CuDevice &cu_device = CuDevice::Instantiate();
@@ -113,7 +116,7 @@ int main(int argc, char *argv[]) {
     cu_device.SelectGpuId("yes");
     //fprintf(stdout, "active gpu: %d\n", cu_device.ActiveGpuId());
 #endif	
-
+*/
 
     const std::string ivector_model_dir = nnet_dir + "/ivector_extractor";
     const std::string nnet3_rxfilename = nnet_dir + "/final.mdl";

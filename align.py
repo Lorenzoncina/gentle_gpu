@@ -29,6 +29,9 @@ parser.add_argument(
         '--lang', default="en",
         help='language of alignment (en, fr, es)')
 parser.add_argument(
+        '--gpu_id', type=str,
+        help='gpu id to use')
+parser.add_argument(
         'audiofile', type=str,
         help='audio file')
 parser.add_argument(
@@ -44,6 +47,7 @@ log_level = args.log.upper()
 logging.getLogger().setLevel(log_level)
 
 lang = args.lang
+gpu_id=args.gpu_id
 decoder_type = args.device
 disfluencies = set(['uh', 'um'])
 
@@ -61,7 +65,7 @@ logging.info("converting audio to 8K sampled wav")
 with gentle.resampled(args.audiofile) as wavfile:
     logging.info("starting alignment")
     aligner = gentle.ForcedAligner(resources, transcript, nthreads=args.nthreads, disfluency=args.disfluency, conservative=args.conservative, disfluencies=disfluencies, lang=lang)
-    result = aligner.transcribe(wavfile, args.audiofile, progress_cb=on_progress, logging=logging, device = decoder_type)
+    result = aligner.transcribe(wavfile, args.audiofile, progress_cb=on_progress, logging=logging, device = decoder_type, gpu_id=gpu_id)
 
 fh = open(args.output, 'w', encoding="utf-8") if args.output else sys.stdout
 fh.write(result.to_json(indent=2))

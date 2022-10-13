@@ -18,7 +18,7 @@ ADDLIBS = $(KALDI_BASE)online2/kaldi-online2.a $(KALDI_BASE)ivector/kaldi-ivecto
           $(KALDI_BASE)hmm/kaldi-hmm.a $(KALDI_BASE)tree/kaldi-tree.a \
           $(KALDI_BASE)matrix/kaldi-matrix.a $(KALDI_BASE)fstext/kaldi-fstext.a \
           $(KALDI_BASE)util/kaldi-util.a $(KALDI_BASE)base/kaldi-base.a
-
+CUDA = false
 ifeq ($(CUDA), true)
     LDFLAGS += $(CUDA_LDFLAGS)
     LDLIBS += $(CUDA_LDLIBS)

@@ -20,8 +20,8 @@ class ForcedAligner():
         self.queue = kaldi_queue.build(resources, hclg_path=gen_hclg_filename, nthreads=nthreads)
         self.mtt = MultiThreadedTranscriber(self.queue, nthreads=nthreads, lang=self.lang)
 
-    def transcribe(self, wavfile, wavfile_path, progress_cb=None, logging=None, device='cpu'):
-        words, duration = self.mtt.transcribe(wavfile, wavfile_path, device,  progress_cb=progress_cb)
+    def transcribe(self, wavfile, wavfile_path, progress_cb=None, logging=None, device='cpu',gpu_id=0):
+        words, duration = self.mtt.transcribe(wavfile, wavfile_path, device, gpu_id, progress_cb=progress_cb)
 
         # Clear queue (would this be gc'ed?)
         for i in range(self.nthreads):

@@ -10,11 +10,9 @@ export decode_cmd="run.pl --mem 2G"
 export dir=exp/chain_cleaned/tdnn_1d_sp
 export graph_dir=$dir/graph_tgsmall
 utils/mkgraph.sh --self-loop-scale 1.0 --remove-oov data/lang_test $dir $graph_dir
-#time bash steps/nnet3/decode.sh --acwt 1.0 --post-decode-acwt 10.0 --nj 1 --cmd "$decode_cmd" \
-     #--online-ivector-dir exp/nnet3/ivectors_$1 $graph_dir data/$1/ $dir/$1 $1
 
-#Integration of the decode.sh script inside here
 
+#GPU decoding with cida decoder
 graphdir=$graph_dir
 data=data/$1/
 dir=$dir/$1
@@ -43,6 +41,8 @@ mkdir -p $dir/log
 stage=1
 if [ $stage -le 1  ]; then
   ivector_conf_path="conf/"$job_folder_name"_ivectors_conf/ivector.conf"
+  #select the proper gpu
+  export CUDA_VISIBLE_DEVICE=$2
 
   $cmd  $dir/log/batched-wav-nnet3-cuda2-batchsize2.log \
     batched-wav-nnet3-cuda \
