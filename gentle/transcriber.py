@@ -186,28 +186,32 @@ class MultiThreadedTranscriber:
             #CPU decoder
 
             def transcribe_chunk(idx):
-                wav_obj = wave.open(wavfile, 'rb')
-                start_t = idx * (self.chunk_len - self.overlap_t)
-                # Seek
-                wav_obj.setpos(int(start_t * wav_obj.getframerate()))
-                # Read frames
-                buf = wav_obj.readframes(int(self.chunk_len * wav_obj.getframerate()))
+                try:
+                    wav_obj = wave.open(wavfile, 'rb')
+                    start_t = idx * (self.chunk_len - self.overlap_t)
+                    # Seek
+                    wav_obj.setpos(int(start_t * wav_obj.getframerate()))
+                    # Read frames
+                    buf = wav_obj.readframes(int(self.chunk_len * wav_obj.getframerate()))
 
-                if len(buf) < 4000:
-                    logging.info('Short segment - ignored %d' % (idx))
+                    if len(buf) < 4000:
+                        logging.info('Short segment - ignored %d' % (idx))
+                        ret = []
+                    else:
+                        k = self.kaldi_queue.get()
+                        k.push_chunk(buf)
+                        ret = k.get_final()
+                        # k.reset() (no longer needed)
+                        self.kaldi_queue.put(k)
+
+                    chunks.append({"start": start_t, "words": ret})
+                    logging.info('%d/%d' % (len(chunks), n_chunks))
+                    if progress_cb is not None:
+                        progress_cb({"message": ' '.join([X['word'] for X in ret]),
+                                     "percent": len(chunks) / float(n_chunks)})
+                except Exception as e:
+                    logging.error("Caught an exception {}".format(e))
                     ret = []
-                else:
-                    k = self.kaldi_queue.get()
-                    k.push_chunk(buf)
-                    ret = k.get_final()
-                    # k.reset() (no longer needed)
-                    self.kaldi_queue.put(k)
-
-                chunks.append({"start": start_t, "words": ret})
-                logging.info('%d/%d' % (len(chunks), n_chunks))
-                if progress_cb is not None:
-                    progress_cb({"message": ' '.join([X['word'] for X in ret]),
-                                 "percent": len(chunks) / float(n_chunks)})
 
             pool = Pool(min(n_chunks, self.nthreads))
             pool.map(transcribe_chunk, range(n_chunks))
