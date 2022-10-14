@@ -115,7 +115,7 @@ def make_bigram_language_model(kaldi_seq, proto_langdir, nnet_gpu_path, **kwargs
     if kwargs['lang'] == 'es'  or kwargs['lang'] == "ar" or kwargs['lang'] == "zh" or kwargs['lang'] == "ru" or kwargs['lang'] == "pt" or kwargs['lang'] == "it" or kwargs['lang'] == "en_wipo" or kwargs['lang'] == "fr":
         context_dep = '2'
     else:
-        context_dep = '2'
+        context_dep = '3'
 
     try:
         devnull = open(os.devnull, 'wb')

@@ -11,9 +11,9 @@ class Resources():
          self.lang = lang
 
          if lang == "en":
-             self.proto_langdir = get_resource('exp/es_exp')
-             self.nnet_gpu_path = get_resource('exp/es_exp/tdnn_7b_chain_online/')
-             self.full_hclg_path = get_resource('exp/es_exp/tdnn_7b_chain_online/graph_pp/HCLG.fst')
+             self.proto_langdir = get_resource('exp/en_exp')
+             self.nnet_gpu_path = get_resource('exp/en_exp/tdnn_7b_chain_online/')
+             self.full_hclg_path = get_resource('exp/en_exp/tdnn_7b_chain_online/graph_pp/HCLG.fst')
          elif lang == "fr":
              self.proto_langdir = get_resource('exp/fr_exp')
              self.nnet_gpu_path = get_resource('exp/fr_exp/tdnn_7b_chain_online/')
