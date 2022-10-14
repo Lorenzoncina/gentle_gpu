@@ -10,10 +10,9 @@ export decode_cmd="run.pl --mem 2G"
 lang=$1_exp
 export dir=../exp/$lang/tdnn_7b_chain_online
 export graph_dir=$dir/graph_pp
-utils/mkgraph.sh --self-loop-scale 1.0 --remove-oov data/lang_test $dir $graph_dir
 
 
-#GPU decoding with cida decoder
+#GPU decoding with cuda decoder
 graphdir=$graph_dir
 data=data/$2/
 dir=$dir/$2
@@ -66,7 +65,7 @@ if [ $stage -le 1  ]; then
     --max-active=$max_active \
     --word-symbol-table=$graphdir/words.txt \
     $model \
-    $graphdir/HCLG.fst \
+    $4 \
     scp:$data/wav.scp \
     $lat_wspecifier
 fi

@@ -10,7 +10,8 @@ from gentle import transcription
 from multiprocessing.pool import ThreadPool as Pool
 
 class MultiThreadedTranscriber:
-    def __init__(self, kaldi_queue, chunk_len=20, overlap_t=2, nthreads=4, lang='lang'):
+    def __init__(self, kaldi_queue,hclg_path, chunk_len=20, overlap_t=2, nthreads=4, lang='lang'):
+        self.hclg_path = hclg_path
         self.chunk_len = chunk_len
         self.overlap_t = overlap_t
         self.nthreads = nthreads
@@ -135,7 +136,7 @@ class MultiThreadedTranscriber:
             # 5 - launch external bash script for kaldi decoding on gpu
             os.chdir('..')
             print("Launching kaldi to decode the input audio file")
-            subprocess.call(["./kaldi_decode.sh", self.lang, job_folder_name, gpu_id])
+            subprocess.call(["./kaldi_decode.sh", self.lang, job_folder_name, gpu_id, self.hclg_path])
 
             # 6 - populate the chunk string with the trascription and starting time of each segment (should retrive this information from decodings or lattices)
             print("Create Gentle data structures with decoded text from Kaldi ")

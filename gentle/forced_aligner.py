@@ -18,7 +18,7 @@ class ForcedAligner():
         ks = self.ms.get_kaldi_sequence()
         gen_hclg_filename = language_model.make_bigram_language_model(ks, resources.proto_langdir,resources.nnet_gpu_path, **kwargs)
         self.queue = kaldi_queue.build(resources, hclg_path=gen_hclg_filename, nthreads=nthreads)
-        self.mtt = MultiThreadedTranscriber(self.queue, nthreads=nthreads, lang=self.lang)
+        self.mtt = MultiThreadedTranscriber(self.queue, nthreads=nthreads, lang=self.lang, hclg_path=gen_hclg_filename)
 
     def transcribe(self, wavfile, wavfile_path, progress_cb=None, logging=None, device='cpu',gpu_id=0):
         words, duration = self.mtt.transcribe(wavfile, wavfile_path, device, gpu_id, progress_cb=progress_cb)
