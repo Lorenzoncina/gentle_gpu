@@ -53,7 +53,9 @@ class MultiThreadedTranscriber:
                 f.write('--ivector-period=10\n')
                 splice_config='--splice-config=conf/splice.conf\n'
                 f.write(splice_config)
-                text_list = ['--lda-matrix=exp/nnet3/extractor//final.mat\n','--global-cmvn-stats=exp/nnet3/extractor//global_cmvn.stats\n', '--diag-ubm=exp/nnet3/extractor//final.dubm\n','--ivector-extractor=exp/nnet3/extractor//final.ie\n', '--num-gselect=5\n', '--min-post=0.025\n', '--posterior-scale=0.1\n', '--max-remembered-frames=1000\n','--max-count=0\n' ]
+                lang = self.lang+'_exp'
+                extractor_dir = os.path.join('../exp',lang,'tdnn_7b_chain_online/ivector_extractor')
+                text_list = ['--lda-matrix='+extractor_dir+'//final.mat\n','--global-cmvn-stats='+extractor_dir+'//global_cmvn.stats\n', '--diag-ubm='+extractor_dir+'//final.dubm\n','--ivector-extractor='+extractor_dir+'//final.ie\n', '--num-gselect=5\n', '--min-post=0.025\n', '--posterior-scale=0.1\n', '--max-remembered-frames=1000\n','--max-count=0\n' ]
                 f.writelines(text_list)
 
             #create the new folder for this job where all kaldi files are then generated
@@ -133,11 +135,12 @@ class MultiThreadedTranscriber:
             # 5 - launch external bash script for kaldi decoding on gpu
             os.chdir('..')
             print("Launching kaldi to decode the input audio file")
-            subprocess.call(["./kaldi_decode.sh", job_folder_name, gpu_id])
+            subprocess.call(["./kaldi_decode.sh", self.lang, job_folder_name, gpu_id])
 
             # 6 - populate the chunk string with the trascription and starting time of each segment (should retrive this information from decodings or lattices)
             print("Create Gentle data structures with decoded text from Kaldi ")
-            exp_folder = os.path.join("exp/chain_cleaned/tdnn_1d_sp", job_folder_name , "transcript.txt")
+            lang= self.lang+"_exp"
+            exp_folder = os.path.join("../exp",language_folder , "tdnn_7b_chain_online", job_folder_name , "transcript.txt")
             path = os.path.join( os.getcwd(), exp_folder)
             decoding_file = open(path, 'r')
             words_of_each_segment = decoding_file.readlines()

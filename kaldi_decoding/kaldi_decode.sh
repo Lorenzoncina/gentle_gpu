@@ -7,16 +7,17 @@ export train_cmd="run.pl"
 export decode_cmd="run.pl --mem 2G"
 
 #Create decoding graph and decode audio
-export dir=exp/chain_cleaned/tdnn_1d_sp
-export graph_dir=$dir/graph_tgsmall
+lang=$1_exp
+export dir=../exp/$lang/tdnn_7b_chain_online
+export graph_dir=$dir/graph_pp
 utils/mkgraph.sh --self-loop-scale 1.0 --remove-oov data/lang_test $dir $graph_dir
 
 
 #GPU decoding with cida decoder
 graphdir=$graph_dir
-data=data/$1/
-dir=$dir/$1
-job_folder_name=$1
+data=data/$2/
+dir=$dir/$2
+job_folder_name=$2
 srcdir=`dirname $dir`; # Assume model directory one level up from decoding directory.
 iter=final
 model=$srcdir/$iter.mdl
@@ -42,7 +43,7 @@ stage=1
 if [ $stage -le 1  ]; then
   ivector_conf_path="conf/"$job_folder_name"_ivectors_conf/ivector.conf"
   #select the proper gpu
-  export CUDA_VISIBLE_DEVICE=$2
+  export CUDA_VISIBLE_DEVICE=$3
 
   $cmd  $dir/log/batched-wav-nnet3-cuda2-batchsize2.log \
     batched-wav-nnet3-cuda \
@@ -72,16 +73,15 @@ fi
 
 
 #decode lattices
-echo "folder for the decoding of this job"
-echo $1 #debug printing the decoding folder
 #move to the decoding folder for this job
-cd exp/chain_cleaned/tdnn_1d_sp
-cd $1
+cd ../exp/$lang/tdnn_7b_chain_online
+cd $2
 echo "actual folder (should be the decoding folder for this job)"
 echo "Script executed from: ${PWD}"
 #source ./path.sh
 
-lattice-1best --lm-scale=12 "ark:zcat lat.JOB.gz |" ark:- | lattice-align-words ../../../../data/lang_test/phones/word_boundary.int ../final.mdl ark:- ark:- | nbest-to-ctm ark:- - | ../../../../utils/int2sym.pl -f 5 ../../../../data/lang_test/words.txt > transcript.txt
+lattice-1best --lm-scale=12 "ark:zcat lat.JOB.gz |" ark:- | lattice-align-words ../../../../kaldi_decoding/data/lang_test/phones/word_boundary.int ../final.mdl ark:- ark:- | nbest-to-ctm ark:- - | ../../../../kaldi_decoding/utils/int2sym.pl -f 5 ../../../../kaldi_decoding/data/lang_test/words.txt > transcript.txt
+
 
 echo "end decoding"
 
