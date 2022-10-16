@@ -17,3 +17,4 @@ ext/k3
 ext/m3
 french_output.json
 ext/kaldi/
+kaldi/decoding/conf/*_decoding_job_ivectors_conf/

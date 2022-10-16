@@ -79,7 +79,7 @@ echo "actual folder (should be the decoding folder for this job)"
 echo "Script executed from: ${PWD}"
 #source ./path.sh
 
-lattice-1best --lm-scale=12 "ark:zcat lat.JOB.gz |" ark:- | lattice-align-words ../../../../kaldi_decoding/data/lang_test/phones/word_boundary.int ../final.mdl ark:- ark:- | nbest-to-ctm ark:- - | ../../../../kaldi_decoding/utils/int2sym.pl -f 5 ../../../../kaldi_decoding/data/lang_test/words.txt > transcript.txt
+lattice-1best --lm-scale=12 "ark:zcat lat.JOB.gz |" ark:- | lattice-align-words ../../../../exp/$lang/langdir/phones/word_boundary.int ../final.mdl ark:- ark:- | nbest-to-ctm ark:- - | ../../../../kaldi_decoding/utils/int2sym.pl -f 5 ../../../../exp/$lang/langdir/words.txt > transcript.txt
 
 
 echo "end decoding"
