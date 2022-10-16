@@ -140,7 +140,7 @@ class MultiThreadedTranscriber:
 
             # 6 - populate the chunk string with the trascription and starting time of each segment (should retrive this information from decodings or lattices)
             print("Create Gentle data structures with decoded text from Kaldi ")
-            lang= self.lang+"_exp"
+            language_folder= self.lang+"_exp"
             exp_folder = os.path.join("../exp",language_folder , "tdnn_7b_chain_online", job_folder_name , "transcript.txt")
             path = os.path.join( os.getcwd(), exp_folder)
             decoding_file = open(path, 'r')
