@@ -21,7 +21,7 @@ class ForcedAligner():
         self.mtt = MultiThreadedTranscriber(self.queue, nthreads=nthreads, lang=self.lang, hclg_path=gen_hclg_filename)
 
     def transcribe(self, wavfile, wavfile_path, progress_cb=None, logging=None, device='cpu',gpu_id=0):
-        words, duration = self.mtt.transcribe(wavfile, wavfile_path, device, gpu_id, progress_cb=progress_cb)
+        words, duration = self.mtt.transcribe(wavfile, wavfile_path, gpu_id, device, progress_cb=progress_cb)
 
         # Clear queue (would this be gc'ed?)
         for i in range(self.nthreads):
@@ -38,7 +38,7 @@ class ForcedAligner():
         if progress_cb is not None:
             progress_cb({'status': 'ALIGNING'})
 
-        words = multipass.realign(wavfile, words, self.ms, resources=self.resources, nthreads=self.nthreads, progress_cb=progress_cb)
+        words = multipass.realign(wavfile, words, self.ms, resources=self.resources, nthreads=self.nthreads, progress_cb=progress_cb, lang=self.lang)
 
         if logging is not None:
             logging.info("after 2nd pass: %d unaligned words (of %d)" % (len([X for X in words if X.not_found_in_audio()]), len(words)))

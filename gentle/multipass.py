@@ -91,7 +91,7 @@ def realign(wavfile, alignment, ms, resources, nthreads=4, progress_cb=None, lan
             if progress_cb is not None:
                 progress_cb({"percent": len(realignments) / float(len(to_realign))})
         except Exception as e:
-            loggin.error("Caught an exception {}".format(e))
+            logging.error("Caught an exception {}".format(e))
             return
 
     pool = Pool(nthreads)

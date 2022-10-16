@@ -32,14 +32,15 @@ parser.add_argument(
         '--gpu_id', type=str,
         help='gpu id to use')
 parser.add_argument(
+        '--device', type=str,
+        help='Decoder type between cpu and gpu one')
+parser.add_argument(
         'audiofile', type=str,
         help='audio file')
 parser.add_argument(
         'txtfile', type=str,
         help='transcript text file')
-parser.add_argument(
-        '--device', type=str,
-        help='Decoder type between cpu and gpu one')
+
 
 args = parser.parse_args()
 

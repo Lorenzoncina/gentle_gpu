@@ -18,7 +18,7 @@ class MultiThreadedTranscriber:
         self.lang=lang
         self.kaldi_queue = kaldi_queue
 
-    def transcribe(self, wavfile, wavfile_path, device ='cpu', gpu_id, progress_cb=None):
+    def transcribe(self, wavfile, wavfile_path, gpu_id, device ='cpu', progress_cb=None):
         wav_obj = wave.open(wavfile, 'rb')
         duration = wav_obj.getnframes() / float(wav_obj.getframerate())
         n_chunks = int(math.ceil(duration / float(self.chunk_len - self.overlap_t)))

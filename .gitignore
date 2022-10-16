@@ -13,3 +13,7 @@ gentle.egg-info/
 exp/
 ext/k3_gentle_original
 ext/m3_gentle_original
+ext/k3
+ext/m3
+french_output.json
+ext/kaldi/
