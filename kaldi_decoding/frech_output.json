@@ -1,1961 +1,966 @@
 {
-  "transcript": "aujourd'hui, Mesdames et messieurs, le temps est venu pour la France de se hisser \u00e0 la hauteur du moment. La division et les fractures qui parcourent notre soci\u00e9t\u00e9 doivent \u00eatre surmont\u00e9s, qu'elles soient \u00e9conomiques, sociales, politique ou morale. Car le monde attend de nous que nous soyons forts, solides et clairvoyant. La mission de la France dans le monde est imminente. Nous prendrons toutes nos responsabilit\u00e9s pour apporter, chaque fois que cela sera n\u00e9cessaire, une r\u00e9ponse pertinente aux grandes crises contemporaines. Qu'il s'agisse de la crise migratoire, du d\u00e9fi climatique, des d\u00e9rives autoritaires, des exc\u00e8s du capitalisme mondial et, bien s\u00fbr, du terrorisme. Plus rien d\u00e9sormais ne frappe les uns en \u00e9pargnant les autres. Nous sommes tous interd\u00e9pendants. Nous sommes tous voisins. La France veillera toujours \u00e0 \u00eatre aux c\u00f4t\u00e9s de la libert\u00e9, des droits de l'homme, mais toujours pour construire la paix dans la dur\u00e9e. Nous avons un r\u00f4le immense. Corriger les exc\u00e8s du cours du monde et veiller \u00e0 la d\u00e9fense de la libert\u00e9. C'est l\u00e0 notre vocation. Pour ce faire, nous aurons besoin d'une Europe plus efficace, plus d\u00e9mocratique, plus politique, car elle est l'instrument de notre puissance et de notre souverainet\u00e9. J\n",
+  "transcript": "I am sitting in a room different from the one you are in now. I am recording the sound of my speaking voice and I am going to play it back into the room again and again until the resonant frequencies of the room reinforce themselves so that any semblance of my speech, with perhaps the exception of rhythm, is destroyed. What you will hear, then, are the natural resonant frequencies of the room articulated by speech. I regard this activity not so much as a demonstration of a physical fact, but more as a way to smooth out any irregularities my speech might have.",
   "words": [
     {
-      "alignedWord": "aujourd'hui",
+      "alignedWord": "i",
       "case": "success",
-      "end": 0.61,
-      "endOffset": 11,
-      "phones": [],
-      "start": 0.38,
+      "end": 3.48,
+      "endOffset": 1,
+      "phones": [
+        {
+          "duration": 0.12,
+          "phone": "ay_S"
+        }
+      ],
+      "start": 3.36,
       "startOffset": 0,
-      "word": "aujourd'hui"
+      "word": "I"
     },
     {
-      "alignedWord": "mesdames",
+      "alignedWord": "am",
       "case": "success",
-      "end": 0.97,
-      "endOffset": 21,
-      "phones": [],
-      "start": 0.85,
+      "end": 3.62,
+      "endOffset": 4,
+      "phones": [
+        {
+          "duration": 0.07,
+          "phone": "ae_B"
+        },
+        {
+          "duration": 0.07,
+          "phone": "m_E"
+        }
+      ],
+      "start": 3.48,
+      "startOffset": 2,
+      "word": "am"
+    },
+    {
+      "alignedWord": "sitting",
+      "case": "success",
+      "end": 3.99,
+      "endOffset": 12,
+      "phones": [
+        {
+          "duration": 0.22,
+          "phone": "s_B"
+        },
+        {
+          "duration": 0.06,
+          "phone": "ih_I"
+        },
+        {
+          "duration": 0.01,
+          "phone": "t_I"
+        },
+        {
+          "duration": 0.04,
+          "phone": "ih_I"
+        },
+        {
+          "duration": 0.04,
+          "phone": "ng_E"
+        }
+      ],
+      "start": 3.62,
+      "startOffset": 5,
+      "word": "sitting"
+    },
+    {
+      "alignedWord": "in",
+      "case": "success",
+      "end": 4.0600000000000005,
+      "endOffset": 15,
+      "phones": [
+        {
+          "duration": 0.03,
+          "phone": "ih_B"
+        },
+        {
+          "duration": 0.04,
+          "phone": "n_E"
+        }
+      ],
+      "start": 3.99,
       "startOffset": 13,
-      "word": "Mesdames"
+      "word": "in"
     },
     {
-      "alignedWord": "et",
+      "alignedWord": "a",
       "case": "success",
-      "end": 1.01,
-      "endOffset": 24,
-      "phones": [],
-      "start": 0.98,
-      "startOffset": 22,
-      "word": "et"
+      "end": 4.109999999999999,
+      "endOffset": 17,
+      "phones": [
+        {
+          "duration": 0.05,
+          "phone": "ah_S"
+        }
+      ],
+      "start": 4.06,
+      "startOffset": 16,
+      "word": "a"
     },
     {
-      "alignedWord": "messieurs",
+      "alignedWord": "room",
       "case": "success",
-      "end": 1.1400000000000001,
-      "endOffset": 34,
-      "phones": [],
-      "start": 1.01,
-      "startOffset": 25,
-      "word": "messieurs"
+      "end": 4.390000000000001,
+      "endOffset": 22,
+      "phones": [
+        {
+          "duration": 0.04,
+          "phone": "r_B"
+        },
+        {
+          "duration": 0.11,
+          "phone": "uw_I"
+        },
+        {
+          "duration": 0.13,
+          "phone": "m_E"
+        }
+      ],
+      "start": 4.11,
+      "startOffset": 18,
+      "word": "room"
     },
     {
-      "alignedWord": "le",
+      "alignedWord": "different",
       "case": "success",
-      "end": 1.52,
-      "endOffset": 38,
-      "phones": [],
-      "start": 1.47,
-      "startOffset": 36,
-      "word": "le"
+      "end": 6.12,
+      "endOffset": 32,
+      "phones": [
+        {
+          "duration": 0.07,
+          "phone": "d_B"
+        },
+        {
+          "duration": 0.06,
+          "phone": "ih_I"
+        },
+        {
+          "duration": 0.04,
+          "phone": "f_I"
+        },
+        {
+          "duration": 0.01,
+          "phone": "r_I"
+        },
+        {
+          "duration": 0.05,
+          "phone": "ah_I"
+        },
+        {
+          "duration": 0.03,
+          "phone": "n_I"
+        },
+        {
+          "duration": 0.06,
+          "phone": "t_E"
+        }
+      ],
+      "start": 5.8,
+      "startOffset": 23,
+      "word": "different"
     },
     {
-      "alignedWord": "temps",
+      "alignedWord": "from",
       "case": "success",
-      "end": 1.58,
-      "endOffset": 44,
-      "phones": [],
-      "start": 1.52,
-      "startOffset": 39,
-      "word": "temps"
+      "end": 6.28,
+      "endOffset": 37,
+      "phones": [
+        {
+          "duration": 0.04,
+          "phone": "f_B"
+        },
+        {
+          "duration": 0.06,
+          "phone": "er_I"
+        },
+        {
+          "duration": 0.06,
+          "phone": "m_E"
+        }
+      ],
+      "start": 6.12,
+      "startOffset": 33,
+      "word": "from"
     },
     {
-      "alignedWord": "est",
+      "alignedWord": "the",
       "case": "success",
-      "end": 1.61,
-      "endOffset": 48,
-      "phones": [],
-      "start": 1.58,
-      "startOffset": 45,
-      "word": "est"
+      "end": 6.37,
+      "endOffset": 41,
+      "phones": [
+        {
+          "duration": 0.05,
+          "phone": "dh_B"
+        },
+        {
+          "duration": 0.04,
+          "phone": "ah_E"
+        }
+      ],
+      "start": 6.28,
+      "startOffset": 38,
+      "word": "the"
     },
     {
-      "alignedWord": "venu",
+      "alignedWord": "one",
       "case": "success",
-      "end": 1.7200000000000002,
+      "end": 6.5,
+      "endOffset": 45,
+      "phones": [
+        {
+          "duration": 0.03,
+          "phone": "w_B"
+        },
+        {
+          "duration": 0.06,
+          "phone": "ah_I"
+        },
+        {
+          "duration": 0.04,
+          "phone": "n_E"
+        }
+      ],
+      "start": 6.37,
+      "startOffset": 42,
+      "word": "one"
+    },
+    {
+      "alignedWord": "you",
+      "case": "success",
+      "end": 6.62,
+      "endOffset": 49,
+      "phones": [
+        {
+          "duration": 0.03,
+          "phone": "y_B"
+        },
+        {
+          "duration": 0.09,
+          "phone": "uw_E"
+        }
+      ],
+      "start": 6.5,
+      "startOffset": 46,
+      "word": "you"
+    },
+    {
+      "alignedWord": "are",
+      "case": "success",
+      "end": 6.73,
       "endOffset": 53,
-      "phones": [],
-      "start": 1.61,
-      "startOffset": 49,
-      "word": "venu"
+      "phones": [
+        {
+          "duration": 0.06,
+          "phone": "aa_B"
+        },
+        {
+          "duration": 0.05,
+          "phone": "r_E"
+        }
+      ],
+      "start": 6.62,
+      "startOffset": 50,
+      "word": "are"
     },
     {
-      "alignedWord": "pour",
+      "alignedWord": "in",
       "case": "success",
-      "end": 1.78,
-      "endOffset": 58,
-      "phones": [],
-      "start": 1.72,
+      "end": 6.840000000000001,
+      "endOffset": 56,
+      "phones": [
+        {
+          "duration": 0.05,
+          "phone": "ih_B"
+        },
+        {
+          "duration": 0.06,
+          "phone": "n_E"
+        }
+      ],
+      "start": 6.73,
       "startOffset": 54,
-      "word": "pour"
+      "word": "in"
     },
     {
-      "alignedWord": "la",
+      "alignedWord": "now",
       "case": "success",
-      "end": 1.81,
-      "endOffset": 61,
-      "phones": [],
-      "start": 1.78,
-      "startOffset": 59,
-      "word": "la"
+      "end": 7.08,
+      "endOffset": 60,
+      "phones": [
+        {
+          "duration": 0.06,
+          "phone": "n_B"
+        },
+        {
+          "duration": 0.18,
+          "phone": "aw_E"
+        }
+      ],
+      "start": 6.84,
+      "startOffset": 57,
+      "word": "now"
     },
     {
-      "alignedWord": "france",
+      "alignedWord": "i",
       "case": "success",
-      "end": 1.9200000000000002,
-      "endOffset": 68,
-      "phones": [],
-      "start": 1.81,
+      "end": 7.44,
+      "endOffset": 63,
+      "phones": [
+        {
+          "duration": 0.36,
+          "phone": "sil"
+        }
+      ],
+      "start": 7.08,
       "startOffset": 62,
-      "word": "France"
-    },
-    {
-      "alignedWord": "de",
-      "case": "success",
-      "end": 1.95,
-      "endOffset": 71,
-      "phones": [],
-      "start": 1.92,
-      "startOffset": 69,
-      "word": "de"
-    },
-    {
-      "alignedWord": "se",
-      "case": "success",
-      "end": 2.02,
-      "endOffset": 74,
-      "phones": [],
-      "start": 1.95,
-      "startOffset": 72,
-      "word": "se"
-    },
-    {
-      "alignedWord": "hisser",
-      "case": "success",
-      "end": 2.2399999999999998,
-      "endOffset": 81,
-      "phones": [],
-      "start": 2.03,
-      "startOffset": 75,
-      "word": "hisser"
-    },
-    {
-      "alignedWord": "\u00e0",
-      "case": "success",
-      "end": 2.34,
-      "endOffset": 83,
-      "phones": [],
-      "start": 2.3,
-      "startOffset": 82,
-      "word": "\u00e0"
-    },
-    {
-      "alignedWord": "la",
-      "case": "success",
-      "end": 2.38,
-      "endOffset": 86,
-      "phones": [],
-      "start": 2.34,
-      "startOffset": 84,
-      "word": "la"
-    },
-    {
-      "alignedWord": "hauteur",
-      "case": "success",
-      "end": 2.5100000000000002,
-      "endOffset": 94,
-      "phones": [],
-      "start": 2.39,
-      "startOffset": 87,
-      "word": "hauteur"
-    },
-    {
-      "alignedWord": "du",
-      "case": "success",
-      "end": 2.55,
-      "endOffset": 97,
-      "phones": [],
-      "start": 2.51,
-      "startOffset": 95,
-      "word": "du"
-    },
-    {
-      "alignedWord": "moment",
-      "case": "success",
-      "end": 2.79,
-      "endOffset": 104,
-      "phones": [],
-      "start": 2.55,
-      "startOffset": 98,
-      "word": "moment"
-    },
-    {
-      "alignedWord": "la",
-      "case": "success",
-      "end": 3.27,
-      "endOffset": 108,
-      "phones": [],
-      "start": 3.21,
-      "startOffset": 106,
-      "word": "La"
-    },
-    {
-      "alignedWord": "division",
-      "case": "success",
-      "end": 3.42,
-      "endOffset": 117,
-      "phones": [],
-      "start": 3.27,
-      "startOffset": 109,
-      "word": "division"
-    },
-    {
-      "alignedWord": "et",
-      "case": "success",
-      "end": 3.4499999999999997,
-      "endOffset": 120,
-      "phones": [],
-      "start": 3.42,
-      "startOffset": 118,
-      "word": "et"
-    },
-    {
-      "alignedWord": "les",
-      "case": "success",
-      "end": 3.47,
-      "endOffset": 124,
-      "phones": [],
-      "start": 3.45,
-      "startOffset": 121,
-      "word": "les"
-    },
-    {
-      "alignedWord": "fractures",
-      "case": "success",
-      "end": 3.6100000000000003,
-      "endOffset": 134,
-      "phones": [],
-      "start": 3.47,
-      "startOffset": 125,
-      "word": "fractures"
-    },
-    {
-      "alignedWord": "qui",
-      "case": "success",
-      "end": 3.6599999999999997,
-      "endOffset": 138,
-      "phones": [],
-      "start": 3.61,
-      "startOffset": 135,
-      "word": "qui"
-    },
-    {
-      "alignedWord": "parcourent",
-      "case": "success",
-      "end": 3.79,
-      "endOffset": 149,
-      "phones": [],
-      "start": 3.66,
-      "startOffset": 139,
-      "word": "parcourent"
-    },
-    {
-      "alignedWord": "notre",
-      "case": "success",
-      "end": 3.87,
-      "endOffset": 155,
-      "phones": [],
-      "start": 3.79,
-      "startOffset": 150,
-      "word": "notre"
-    },
-    {
-      "alignedWord": "soci\u00e9t\u00e9",
-      "case": "success",
-      "end": 4.16,
-      "endOffset": 163,
-      "phones": [],
-      "start": 3.87,
-      "startOffset": 156,
-      "word": "soci\u00e9t\u00e9"
-    },
-    {
-      "alignedWord": "doivent",
-      "case": "success",
-      "end": 4.43,
-      "endOffset": 171,
-      "phones": [],
-      "start": 4.35,
-      "startOffset": 164,
-      "word": "doivent"
-    },
-    {
-      "alignedWord": "\u00eatre",
-      "case": "success",
-      "end": 4.5,
-      "endOffset": 176,
-      "phones": [],
-      "start": 4.43,
-      "startOffset": 172,
-      "word": "\u00eatre"
-    },
-    {
-      "alignedWord": "surmont\u00e9s",
-      "case": "success",
-      "end": 4.73,
-      "endOffset": 186,
-      "phones": [],
-      "start": 4.5,
-      "startOffset": 177,
-      "word": "surmont\u00e9s"
-    },
-    {
-      "alignedWord": "<unk>",
-      "case": "success",
-      "end": 4.74,
-      "endOffset": 196,
-      "phones": [],
-      "start": 4.73,
-      "startOffset": 188,
-      "word": "qu'elles"
-    },
-    {
-      "alignedWord": "soient",
-      "case": "success",
-      "end": 5.08,
-      "endOffset": 203,
-      "phones": [],
-      "start": 5.0,
-      "startOffset": 197,
-      "word": "soient"
-    },
-    {
-      "alignedWord": "\u00e9conomiques",
-      "case": "success",
-      "end": 5.38,
-      "endOffset": 215,
-      "phones": [],
-      "start": 5.1,
-      "startOffset": 204,
-      "word": "\u00e9conomiques"
-    },
-    {
-      "alignedWord": "sociales",
-      "case": "success",
-      "end": 5.6899999999999995,
-      "endOffset": 225,
-      "phones": [],
-      "start": 5.42,
-      "startOffset": 217,
-      "word": "sociales"
-    },
-    {
-      "alignedWord": "politique",
-      "case": "success",
-      "end": 6.13,
-      "endOffset": 236,
-      "phones": [],
-      "start": 5.87,
-      "startOffset": 227,
-      "word": "politique"
-    },
-    {
-      "alignedWord": "ou",
-      "case": "success",
-      "end": 6.22,
-      "endOffset": 239,
-      "phones": [],
-      "start": 6.16,
-      "startOffset": 237,
-      "word": "ou"
-    },
-    {
-      "alignedWord": "morale",
-      "case": "success",
-      "end": 6.41,
-      "endOffset": 246,
-      "phones": [],
-      "start": 6.22,
-      "startOffset": 240,
-      "word": "morale"
-    },
-    {
-      "alignedWord": "car",
-      "case": "success",
-      "end": 6.83,
-      "endOffset": 251,
-      "phones": [],
-      "start": 6.76,
-      "startOffset": 248,
-      "word": "Car"
-    },
-    {
-      "alignedWord": "le",
-      "case": "success",
-      "end": 6.87,
-      "endOffset": 254,
-      "phones": [],
-      "start": 6.83,
-      "startOffset": 252,
-      "word": "le"
-    },
-    {
-      "alignedWord": "monde",
-      "case": "success",
-      "end": 7.0200000000000005,
-      "endOffset": 260,
-      "phones": [],
-      "start": 6.87,
-      "startOffset": 255,
-      "word": "monde"
-    },
-    {
-      "alignedWord": "attend",
-      "case": "success",
-      "end": 7.18,
-      "endOffset": 267,
-      "phones": [],
-      "start": 7.05,
-      "startOffset": 261,
-      "word": "attend"
-    },
-    {
-      "alignedWord": "de",
-      "case": "success",
-      "end": 7.22,
-      "endOffset": 270,
-      "phones": [],
-      "start": 7.18,
-      "startOffset": 268,
-      "word": "de"
-    },
-    {
-      "alignedWord": "nous",
-      "case": "success",
-      "end": 7.3,
-      "endOffset": 275,
-      "phones": [],
-      "start": 7.22,
-      "startOffset": 271,
-      "word": "nous"
-    },
-    {
-      "alignedWord": "que",
-      "case": "success",
-      "end": 7.569999999999999,
-      "endOffset": 279,
-      "phones": [],
-      "start": 7.52,
-      "startOffset": 276,
-      "word": "que"
-    },
-    {
-      "alignedWord": "nous",
-      "case": "success",
-      "end": 7.62,
-      "endOffset": 284,
-      "phones": [],
-      "start": 7.57,
-      "startOffset": 280,
-      "word": "nous"
-    },
-    {
-      "alignedWord": "soyons",
-      "case": "success",
-      "end": 7.73,
-      "endOffset": 291,
-      "phones": [],
-      "start": 7.62,
-      "startOffset": 285,
-      "word": "soyons"
-    },
-    {
-      "alignedWord": "forts",
-      "case": "success",
-      "end": 7.960000000000001,
-      "endOffset": 297,
-      "phones": [],
-      "start": 7.73,
-      "startOffset": 292,
-      "word": "forts"
-    },
-    {
-      "alignedWord": "solides",
-      "case": "success",
-      "end": 8.33,
-      "endOffset": 306,
-      "phones": [],
-      "start": 8.1,
-      "startOffset": 299,
-      "word": "solides"
-    },
-    {
-      "alignedWord": "et",
-      "case": "success",
-      "end": 8.55,
-      "endOffset": 309,
-      "phones": [],
-      "start": 8.5,
-      "startOffset": 307,
-      "word": "et"
-    },
-    {
-      "alignedWord": "clairvoyant",
-      "case": "success",
-      "end": 8.74,
-      "endOffset": 321,
-      "phones": [],
-      "start": 8.55,
-      "startOffset": 310,
-      "word": "clairvoyant"
-    },
-    {
-      "alignedWord": "la",
-      "case": "success",
-      "end": 9.190000000000001,
-      "endOffset": 325,
-      "phones": [],
-      "start": 9.14,
-      "startOffset": 323,
-      "word": "La"
-    },
-    {
-      "alignedWord": "mission",
-      "case": "success",
-      "end": 9.299999999999999,
-      "endOffset": 333,
-      "phones": [],
-      "start": 9.19,
-      "startOffset": 326,
-      "word": "mission"
-    },
-    {
-      "alignedWord": "de",
-      "case": "success",
-      "end": 9.32,
-      "endOffset": 336,
-      "phones": [],
-      "start": 9.3,
-      "startOffset": 334,
-      "word": "de"
-    },
-    {
-      "alignedWord": "la",
-      "case": "success",
-      "end": 9.36,
-      "endOffset": 339,
-      "phones": [],
-      "start": 9.32,
-      "startOffset": 337,
-      "word": "la"
-    },
-    {
-      "alignedWord": "france",
-      "case": "success",
-      "end": 9.469999999999999,
-      "endOffset": 346,
-      "phones": [],
-      "start": 9.36,
-      "startOffset": 340,
-      "word": "France"
-    },
-    {
-      "alignedWord": "dans",
-      "case": "success",
-      "end": 9.520000000000001,
-      "endOffset": 351,
-      "phones": [],
-      "start": 9.47,
-      "startOffset": 347,
-      "word": "dans"
-    },
-    {
-      "alignedWord": "le",
-      "case": "success",
-      "end": 9.549999999999999,
-      "endOffset": 354,
-      "phones": [],
-      "start": 9.52,
-      "startOffset": 352,
-      "word": "le"
-    },
-    {
-      "alignedWord": "monde",
-      "case": "success",
-      "end": 9.71,
-      "endOffset": 360,
-      "phones": [],
-      "start": 9.55,
-      "startOffset": 355,
-      "word": "monde"
-    },
-    {
-      "alignedWord": "est",
-      "case": "success",
-      "end": 9.92,
-      "endOffset": 364,
-      "phones": [],
-      "start": 9.86,
-      "startOffset": 361,
-      "word": "est"
-    },
-    {
-      "alignedWord": "imminente",
-      "case": "success",
-      "end": 10.21,
-      "endOffset": 374,
-      "phones": [],
-      "start": 9.96,
-      "startOffset": 365,
-      "word": "imminente"
-    },
-    {
-      "alignedWord": "nous",
-      "case": "success",
-      "end": 10.67,
-      "endOffset": 380,
-      "phones": [],
-      "start": 10.62,
-      "startOffset": 376,
-      "word": "Nous"
-    },
-    {
-      "alignedWord": "prendrons",
-      "case": "success",
-      "end": 10.8,
-      "endOffset": 390,
-      "phones": [],
-      "start": 10.67,
-      "startOffset": 381,
-      "word": "prendrons"
-    },
-    {
-      "alignedWord": "toutes",
-      "case": "success",
-      "end": 10.89,
-      "endOffset": 397,
-      "phones": [],
-      "start": 10.81,
-      "startOffset": 391,
-      "word": "toutes"
-    },
-    {
-      "alignedWord": "nos",
-      "case": "success",
-      "end": 10.93,
-      "endOffset": 401,
-      "phones": [],
-      "start": 10.89,
-      "startOffset": 398,
-      "word": "nos"
-    },
-    {
-      "alignedWord": "responsabilit\u00e9s",
-      "case": "success",
-      "end": 11.32,
-      "endOffset": 417,
-      "phones": [],
-      "start": 10.93,
-      "startOffset": 402,
-      "word": "responsabilit\u00e9s"
-    },
-    {
-      "alignedWord": "pour",
-      "case": "success",
-      "end": 11.5,
-      "endOffset": 422,
-      "phones": [],
-      "start": 11.44,
-      "startOffset": 418,
-      "word": "pour"
-    },
-    {
-      "alignedWord": "apporter",
-      "case": "success",
-      "end": 11.66,
-      "endOffset": 431,
-      "phones": [],
-      "start": 11.5,
-      "startOffset": 423,
-      "word": "apporter"
-    },
-    {
-      "alignedWord": "chaque",
-      "case": "success",
-      "end": 11.75,
-      "endOffset": 439,
-      "phones": [],
-      "start": 11.67,
-      "startOffset": 433,
-      "word": "chaque"
-    },
-    {
-      "alignedWord": "fois",
-      "case": "success",
-      "end": 11.84,
-      "endOffset": 444,
-      "phones": [],
-      "start": 11.75,
-      "startOffset": 440,
-      "word": "fois"
-    },
-    {
-      "alignedWord": "que",
-      "case": "success",
-      "end": 11.879999999999999,
-      "endOffset": 448,
-      "phones": [],
-      "start": 11.84,
-      "startOffset": 445,
-      "word": "que"
-    },
-    {
-      "alignedWord": "cela",
-      "case": "success",
-      "end": 11.97,
-      "endOffset": 453,
-      "phones": [],
-      "start": 11.88,
-      "startOffset": 449,
-      "word": "cela"
-    },
-    {
-      "alignedWord": "sera",
-      "case": "success",
-      "end": 12.05,
-      "endOffset": 458,
-      "phones": [],
-      "start": 11.97,
-      "startOffset": 454,
-      "word": "sera"
-    },
-    {
-      "alignedWord": "n\u00e9cessaire",
-      "case": "success",
-      "end": 12.280000000000001,
-      "endOffset": 469,
-      "phones": [],
-      "start": 12.05,
-      "startOffset": 459,
-      "word": "n\u00e9cessaire"
-    },
-    {
-      "alignedWord": "une",
-      "case": "success",
-      "end": 12.450000000000001,
-      "endOffset": 474,
-      "phones": [],
-      "start": 12.39,
-      "startOffset": 471,
-      "word": "une"
-    },
-    {
-      "alignedWord": "r\u00e9ponse",
-      "case": "success",
-      "end": 12.59,
-      "endOffset": 482,
-      "phones": [],
-      "start": 12.45,
-      "startOffset": 475,
-      "word": "r\u00e9ponse"
-    },
-    {
-      "alignedWord": "pertinente",
-      "case": "success",
-      "end": 12.78,
-      "endOffset": 493,
-      "phones": [],
-      "start": 12.59,
-      "startOffset": 483,
-      "word": "pertinente"
-    },
-    {
-      "alignedWord": "aux",
-      "case": "success",
-      "end": 12.84,
-      "endOffset": 497,
-      "phones": [],
-      "start": 12.79,
-      "startOffset": 494,
-      "word": "aux"
-    },
-    {
-      "alignedWord": "grandes",
-      "case": "success",
-      "end": 12.959999999999999,
-      "endOffset": 505,
-      "phones": [],
-      "start": 12.84,
-      "startOffset": 498,
-      "word": "grandes"
-    },
-    {
-      "alignedWord": "crises",
-      "case": "success",
-      "end": 13.07,
-      "endOffset": 512,
-      "phones": [],
-      "start": 12.96,
-      "startOffset": 506,
-      "word": "crises"
-    },
-    {
-      "alignedWord": "contemporaines",
-      "case": "success",
-      "end": 13.3,
-      "endOffset": 527,
-      "phones": [],
-      "start": 13.08,
-      "startOffset": 513,
-      "word": "contemporaines"
+      "word": "I"
     },
     {
       "case": "not-found-in-audio",
-      "endOffset": 534,
-      "startOffset": 529,
-      "word": "Qu'il"
+      "endOffset": 66,
+      "startOffset": 64,
+      "word": "am"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 76,
+      "startOffset": 67,
+      "word": "recording"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 80,
+      "startOffset": 77,
+      "word": "the"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 86,
+      "startOffset": 81,
+      "word": "sound"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 89,
+      "startOffset": 87,
+      "word": "of"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 92,
+      "startOffset": 90,
+      "word": "my"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 101,
+      "startOffset": 93,
+      "word": "speaking"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 107,
+      "startOffset": 102,
+      "word": "voice"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 111,
+      "startOffset": 108,
+      "word": "and"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 113,
+      "startOffset": 112,
+      "word": "I"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 116,
+      "startOffset": 114,
+      "word": "am"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 122,
+      "startOffset": 117,
+      "word": "going"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 125,
+      "startOffset": 123,
+      "word": "to"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 130,
+      "startOffset": 126,
+      "word": "play"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 133,
+      "startOffset": 131,
+      "word": "it"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 138,
+      "startOffset": 134,
+      "word": "back"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 143,
+      "startOffset": 139,
+      "word": "into"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 147,
+      "startOffset": 144,
+      "word": "the"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 152,
+      "startOffset": 148,
+      "word": "room"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 158,
+      "startOffset": 153,
+      "word": "again"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 162,
+      "startOffset": 159,
+      "word": "and"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 168,
+      "startOffset": 163,
+      "word": "again"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 174,
+      "startOffset": 169,
+      "word": "until"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 178,
+      "startOffset": 175,
+      "word": "the"
     },
     {
       "alignedWord": "<unk>",
       "case": "success",
-      "end": 13.979999999999999,
-      "endOffset": 543,
+      "end": 15.44,
+      "endOffset": 187,
       "phones": [],
-      "start": 13.79,
-      "startOffset": 535,
-      "word": "s'agisse"
+      "start": 15.35,
+      "startOffset": 179,
+      "word": "resonant"
     },
     {
-      "alignedWord": "de",
+      "case": "not-found-in-audio",
+      "endOffset": 199,
+      "startOffset": 188,
+      "word": "frequencies"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 202,
+      "startOffset": 200,
+      "word": "of"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 206,
+      "startOffset": 203,
+      "word": "the"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 211,
+      "startOffset": 207,
+      "word": "room"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 221,
+      "startOffset": 212,
+      "word": "reinforce"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 232,
+      "startOffset": 222,
+      "word": "themselves"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 235,
+      "startOffset": 233,
+      "word": "so"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 240,
+      "startOffset": 236,
+      "word": "that"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 244,
+      "startOffset": 241,
+      "word": "any"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 254,
+      "startOffset": 245,
+      "word": "semblance"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 257,
+      "startOffset": 255,
+      "word": "of"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 260,
+      "startOffset": 258,
+      "word": "my"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 267,
+      "startOffset": 261,
+      "word": "speech"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 273,
+      "startOffset": 269,
+      "word": "with"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 281,
+      "startOffset": 274,
+      "word": "perhaps"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 285,
+      "startOffset": 282,
+      "word": "the"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 295,
+      "startOffset": 286,
+      "word": "exception"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 298,
+      "startOffset": 296,
+      "word": "of"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 305,
+      "startOffset": 299,
+      "word": "rhythm"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 309,
+      "startOffset": 307,
+      "word": "is"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 319,
+      "startOffset": 310,
+      "word": "destroyed"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 325,
+      "startOffset": 321,
+      "word": "What"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 329,
+      "startOffset": 326,
+      "word": "you"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 334,
+      "startOffset": 330,
+      "word": "will"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 339,
+      "startOffset": 335,
+      "word": "hear"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 345,
+      "startOffset": 341,
+      "word": "then"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 350,
+      "startOffset": 347,
+      "word": "are"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 354,
+      "startOffset": 351,
+      "word": "the"
+    },
+    {
+      "case": "not-found-in-audio",
+      "endOffset": 362,
+      "startOffset": 355,
+      "word": "natural"
+    },
+    {
+      "alignedWord": "<unk>",
       "case": "success",
-      "end": 14.04,
-      "endOffset": 546,
-      "phones": [],
-      "start": 14.0,
-      "startOffset": 544,
-      "word": "de"
+      "end": 17.349999999999998,
+      "endOffset": 371,
+      "phones": [
+        {
+          "duration": 0.76,
+          "phone": "oov_S"
+        }
+      ],
+      "start": 16.59,
+      "startOffset": 363,
+      "word": "resonant"
     },
     {
-      "alignedWord": "la",
+      "alignedWord": "frequencies",
       "case": "success",
-      "end": 14.079999999999998,
-      "endOffset": 549,
-      "phones": [],
-      "start": 14.04,
-      "startOffset": 547,
-      "word": "la"
+      "end": 17.45,
+      "endOffset": 383,
+      "phones": [
+        {
+          "duration": 0.01,
+          "phone": "f_B"
+        },
+        {
+          "duration": 0.01,
+          "phone": "r_I"
+        },
+        {
+          "duration": 0.01,
+          "phone": "iy_I"
+        },
+        {
+          "duration": 0.01,
+          "phone": "k_I"
+        },
+        {
+          "duration": 0.01,
+          "phone": "w_I"
+        },
+        {
+          "duration": 0.01,
+          "phone": "ah_I"
+        },
+        {
+          "duration": 0.01,
+          "phone": "n_I"
+        },
+        {
+          "duration": 0.01,
+          "phone": "s_I"
+        },
+        {
+          "duration": 0.01,
+          "phone": "iy_I"
+        },
+        {
+          "duration": 0.01,
+          "phone": "z_E"
+        }
+      ],
+      "start": 17.349999999999998,
+      "startOffset": 372,
+      "word": "frequencies"
     },
     {
-      "alignedWord": "crise",
-      "case": "success",
-      "end": 14.17,
-      "endOffset": 555,
-      "phones": [],
-      "start": 14.08,
-      "startOffset": 550,
-      "word": "crise"
-    },
-    {
-      "alignedWord": "migratoire",
-      "case": "success",
-      "end": 14.44,
-      "endOffset": 566,
-      "phones": [],
-      "start": 14.17,
-      "startOffset": 556,
-      "word": "migratoire"
-    },
-    {
-      "alignedWord": "du",
-      "case": "success",
-      "end": 14.57,
-      "endOffset": 570,
-      "phones": [],
-      "start": 14.51,
-      "startOffset": 568,
-      "word": "du"
-    },
-    {
-      "alignedWord": "d\u00e9fi",
-      "case": "success",
-      "end": 14.69,
-      "endOffset": 575,
-      "phones": [],
-      "start": 14.57,
-      "startOffset": 571,
-      "word": "d\u00e9fi"
-    },
-    {
-      "alignedWord": "climatique",
-      "case": "success",
-      "end": 14.94,
-      "endOffset": 586,
-      "phones": [],
-      "start": 14.69,
-      "startOffset": 576,
-      "word": "climatique"
-    },
-    {
-      "alignedWord": "des",
-      "case": "success",
-      "end": 15.23,
-      "endOffset": 591,
-      "phones": [],
-      "start": 15.17,
-      "startOffset": 588,
-      "word": "des"
-    },
-    {
-      "alignedWord": "d\u00e9rives",
-      "case": "success",
-      "end": 15.360000000000001,
-      "endOffset": 599,
-      "phones": [],
-      "start": 15.23,
-      "startOffset": 592,
-      "word": "d\u00e9rives"
-    },
-    {
-      "alignedWord": "autoritaires",
-      "case": "success",
-      "end": 15.629999999999999,
-      "endOffset": 612,
-      "phones": [],
-      "start": 15.37,
-      "startOffset": 600,
-      "word": "autoritaires"
-    },
-    {
-      "alignedWord": "des",
-      "case": "success",
-      "end": 15.74,
-      "endOffset": 617,
-      "phones": [],
-      "start": 15.67,
-      "startOffset": 614,
-      "word": "des"
-    },
-    {
-      "alignedWord": "exc\u00e8s",
-      "case": "success",
-      "end": 15.86,
-      "endOffset": 623,
-      "phones": [],
-      "start": 15.75,
-      "startOffset": 618,
-      "word": "exc\u00e8s"
-    },
-    {
-      "alignedWord": "du",
-      "case": "success",
-      "end": 15.899999999999999,
-      "endOffset": 626,
-      "phones": [],
-      "start": 15.86,
-      "startOffset": 624,
-      "word": "du"
-    },
-    {
-      "alignedWord": "capitalisme",
-      "case": "success",
-      "end": 16.14,
-      "endOffset": 638,
-      "phones": [],
-      "start": 15.9,
-      "startOffset": 627,
-      "word": "capitalisme"
-    },
-    {
-      "alignedWord": "mondial",
-      "case": "success",
-      "end": 16.37,
-      "endOffset": 646,
-      "phones": [],
-      "start": 16.14,
-      "startOffset": 639,
-      "word": "mondial"
-    },
-    {
-      "alignedWord": "et",
-      "case": "success",
-      "end": 16.55,
-      "endOffset": 649,
-      "phones": [],
-      "start": 16.5,
-      "startOffset": 647,
-      "word": "et"
-    },
-    {
-      "alignedWord": "bien",
-      "case": "success",
-      "end": 16.62,
-      "endOffset": 655,
-      "phones": [],
-      "start": 16.55,
-      "startOffset": 651,
-      "word": "bien"
-    },
-    {
-      "alignedWord": "s\u00fbr",
-      "case": "success",
-      "end": 16.71,
-      "endOffset": 659,
-      "phones": [],
-      "start": 16.62,
-      "startOffset": 656,
-      "word": "s\u00fbr"
-    },
-    {
-      "alignedWord": "du",
-      "case": "success",
-      "end": 16.76,
-      "endOffset": 663,
-      "phones": [],
-      "start": 16.71,
-      "startOffset": 661,
-      "word": "du"
-    },
-    {
-      "alignedWord": "terrorisme",
-      "case": "success",
-      "end": 16.98,
-      "endOffset": 674,
-      "phones": [],
-      "start": 16.76,
-      "startOffset": 664,
-      "word": "terrorisme"
-    },
-    {
-      "alignedWord": "plus",
-      "case": "success",
-      "end": 17.37,
-      "endOffset": 680,
-      "phones": [],
-      "start": 17.3,
-      "startOffset": 676,
-      "word": "Plus"
-    },
-    {
-      "alignedWord": "rien",
+      "alignedWord": "of",
       "case": "success",
       "end": 17.5,
-      "endOffset": 685,
-      "phones": [],
-      "start": 17.37,
-      "startOffset": 681,
-      "word": "rien"
-    },
-    {
-      "alignedWord": "d\u00e9sormais",
-      "case": "success",
-      "end": 17.759999999999998,
-      "endOffset": 695,
-      "phones": [],
-      "start": 17.52,
-      "startOffset": 686,
-      "word": "d\u00e9sormais"
-    },
-    {
-      "alignedWord": "ne",
-      "case": "success",
-      "end": 17.990000000000002,
-      "endOffset": 698,
-      "phones": [],
-      "start": 17.94,
-      "startOffset": 696,
-      "word": "ne"
-    },
-    {
-      "alignedWord": "frappe",
-      "case": "success",
-      "end": 18.11,
-      "endOffset": 705,
-      "phones": [],
-      "start": 17.99,
-      "startOffset": 699,
-      "word": "frappe"
-    },
-    {
-      "alignedWord": "les",
-      "case": "success",
-      "end": 18.169999999999998,
-      "endOffset": 709,
-      "phones": [],
-      "start": 18.11,
-      "startOffset": 706,
-      "word": "les"
-    },
-    {
-      "alignedWord": "uns",
-      "case": "success",
-      "end": 18.25,
-      "endOffset": 713,
-      "phones": [],
-      "start": 18.18,
-      "startOffset": 710,
-      "word": "uns"
-    },
-    {
-      "alignedWord": "en",
-      "case": "success",
-      "end": 18.459999999999997,
-      "endOffset": 716,
-      "phones": [],
-      "start": 18.4,
-      "startOffset": 714,
-      "word": "en"
-    },
-    {
-      "alignedWord": "\u00e9pargnant",
-      "case": "success",
-      "end": 18.59,
-      "endOffset": 726,
-      "phones": [],
-      "start": 18.46,
-      "startOffset": 717,
-      "word": "\u00e9pargnant"
-    },
-    {
-      "alignedWord": "les",
-      "case": "success",
-      "end": 18.64,
-      "endOffset": 730,
-      "phones": [],
-      "start": 18.59,
-      "startOffset": 727,
-      "word": "les"
-    },
-    {
-      "alignedWord": "autres",
-      "case": "success",
-      "end": 18.75,
-      "endOffset": 737,
-      "phones": [],
-      "start": 18.64,
-      "startOffset": 731,
-      "word": "autres"
-    },
-    {
-      "alignedWord": "nous",
-      "case": "success",
-      "end": 19.18,
-      "endOffset": 743,
-      "phones": [],
-      "start": 19.13,
-      "startOffset": 739,
-      "word": "Nous"
-    },
-    {
-      "alignedWord": "sommes",
-      "case": "success",
-      "end": 19.28,
-      "endOffset": 750,
-      "phones": [],
-      "start": 19.18,
-      "startOffset": 744,
-      "word": "sommes"
-    },
-    {
-      "alignedWord": "tous",
-      "case": "success",
-      "end": 19.44,
-      "endOffset": 755,
-      "phones": [],
-      "start": 19.28,
-      "startOffset": 751,
-      "word": "tous"
-    },
-    {
-      "alignedWord": "<unk>",
-      "case": "success",
-      "end": 19.880000000000003,
-      "endOffset": 771,
-      "phones": [],
-      "start": 19.6,
-      "startOffset": 756,
-      "word": "interd\u00e9pendants"
-    },
-    {
-      "alignedWord": "nous",
-      "case": "success",
-      "end": 20.2,
-      "endOffset": 777,
-      "phones": [],
-      "start": 20.15,
-      "startOffset": 773,
-      "word": "Nous"
-    },
-    {
-      "alignedWord": "sommes",
-      "case": "success",
-      "end": 20.279999999999998,
-      "endOffset": 784,
-      "phones": [],
-      "start": 20.2,
-      "startOffset": 778,
-      "word": "sommes"
-    },
-    {
-      "alignedWord": "tous",
-      "case": "success",
-      "end": 20.42,
-      "endOffset": 789,
-      "phones": [],
-      "start": 20.28,
-      "startOffset": 785,
-      "word": "tous"
-    },
-    {
-      "alignedWord": "voisins",
-      "case": "success",
-      "end": 20.62,
-      "endOffset": 797,
-      "phones": [],
-      "start": 20.44,
-      "startOffset": 790,
-      "word": "voisins"
-    },
-    {
-      "alignedWord": "la",
-      "case": "success",
-      "end": 21.169999999999998,
-      "endOffset": 801,
-      "phones": [],
-      "start": 21.11,
-      "startOffset": 799,
-      "word": "La"
-    },
-    {
-      "alignedWord": "france",
-      "case": "success",
-      "end": 21.42,
-      "endOffset": 808,
-      "phones": [],
-      "start": 21.17,
-      "startOffset": 802,
-      "word": "France"
-    },
-    {
-      "alignedWord": "veillera",
-      "case": "success",
-      "end": 21.59,
-      "endOffset": 817,
-      "phones": [],
-      "start": 21.45,
-      "startOffset": 809,
-      "word": "veillera"
-    },
-    {
-      "alignedWord": "toujours",
-      "case": "success",
-      "end": 21.73,
-      "endOffset": 826,
-      "phones": [],
-      "start": 21.59,
-      "startOffset": 818,
-      "word": "toujours"
-    },
-    {
-      "alignedWord": "\u00e0",
-      "case": "success",
-      "end": 21.76,
-      "endOffset": 828,
-      "phones": [],
-      "start": 21.73,
-      "startOffset": 827,
-      "word": "\u00e0"
-    },
-    {
-      "alignedWord": "\u00eatre",
-      "case": "success",
-      "end": 21.87,
-      "endOffset": 833,
-      "phones": [],
-      "start": 21.76,
-      "startOffset": 829,
-      "word": "\u00eatre"
-    },
-    {
-      "alignedWord": "aux",
-      "case": "success",
-      "end": 22.01,
-      "endOffset": 837,
-      "phones": [],
-      "start": 21.96,
-      "startOffset": 834,
-      "word": "aux"
-    },
-    {
-      "alignedWord": "c\u00f4t\u00e9s",
-      "case": "success",
-      "end": 22.14,
-      "endOffset": 843,
-      "phones": [],
-      "start": 22.01,
-      "startOffset": 838,
-      "word": "c\u00f4t\u00e9s"
-    },
-    {
-      "alignedWord": "de",
-      "case": "success",
-      "end": 22.18,
-      "endOffset": 846,
-      "phones": [],
-      "start": 22.14,
-      "startOffset": 844,
-      "word": "de"
-    },
-    {
-      "alignedWord": "la",
-      "case": "success",
-      "end": 22.23,
-      "endOffset": 849,
-      "phones": [],
-      "start": 22.18,
-      "startOffset": 847,
-      "word": "la"
-    },
-    {
-      "alignedWord": "libert\u00e9",
-      "case": "success",
-      "end": 22.5,
-      "endOffset": 857,
-      "phones": [],
-      "start": 22.23,
-      "startOffset": 850,
-      "word": "libert\u00e9"
-    },
-    {
-      "alignedWord": "des",
-      "case": "success",
-      "end": 22.64,
-      "endOffset": 862,
-      "phones": [],
-      "start": 22.59,
-      "startOffset": 859,
-      "word": "des"
-    },
-    {
-      "alignedWord": "droits",
-      "case": "success",
-      "end": 22.72,
-      "endOffset": 869,
-      "phones": [],
-      "start": 22.64,
-      "startOffset": 863,
-      "word": "droits"
-    },
-    {
-      "alignedWord": "de",
-      "case": "success",
-      "end": 22.75,
-      "endOffset": 872,
-      "phones": [],
-      "start": 22.72,
-      "startOffset": 870,
-      "word": "de"
-    },
-    {
-      "alignedWord": "<unk>",
-      "case": "success",
-      "end": 22.89,
-      "endOffset": 880,
-      "phones": [],
-      "start": 22.88,
-      "startOffset": 873,
-      "word": "l'homme"
-    },
-    {
-      "alignedWord": "mais",
-      "case": "success",
-      "end": 23.16,
-      "endOffset": 886,
-      "phones": [],
-      "start": 23.07,
-      "startOffset": 882,
-      "word": "mais"
-    },
-    {
-      "alignedWord": "toujours",
-      "case": "success",
-      "end": 23.39,
-      "endOffset": 895,
-      "phones": [],
-      "start": 23.16,
-      "startOffset": 887,
-      "word": "toujours"
-    },
-    {
-      "alignedWord": "pour",
-      "case": "success",
-      "end": 23.669999999999998,
-      "endOffset": 900,
-      "phones": [],
-      "start": 23.59,
-      "startOffset": 896,
-      "word": "pour"
-    },
-    {
-      "alignedWord": "construire",
-      "case": "success",
-      "end": 23.92,
-      "endOffset": 911,
-      "phones": [],
-      "start": 23.67,
-      "startOffset": 901,
-      "word": "construire"
-    },
-    {
-      "alignedWord": "la",
-      "case": "success",
-      "end": 24.080000000000002,
-      "endOffset": 914,
-      "phones": [],
-      "start": 24.01,
-      "startOffset": 912,
-      "word": "la"
-    },
-    {
-      "alignedWord": "paix",
-      "case": "success",
-      "end": 24.24,
-      "endOffset": 919,
-      "phones": [],
-      "start": 24.08,
-      "startOffset": 915,
-      "word": "paix"
-    },
-    {
-      "alignedWord": "dans",
-      "case": "success",
-      "end": 24.36,
-      "endOffset": 924,
-      "phones": [],
-      "start": 24.3,
-      "startOffset": 920,
-      "word": "dans"
-    },
-    {
-      "alignedWord": "la",
-      "case": "success",
-      "end": 24.4,
-      "endOffset": 927,
-      "phones": [],
-      "start": 24.36,
-      "startOffset": 925,
-      "word": "la"
-    },
-    {
-      "alignedWord": "dur\u00e9e",
-      "case": "success",
-      "end": 24.509999999999998,
-      "endOffset": 933,
-      "phones": [],
-      "start": 24.4,
-      "startOffset": 928,
-      "word": "dur\u00e9e"
-    },
-    {
-      "alignedWord": "nous",
-      "case": "success",
-      "end": 25.16,
-      "endOffset": 939,
-      "phones": [],
-      "start": 25.11,
-      "startOffset": 935,
-      "word": "Nous"
-    },
-    {
-      "alignedWord": "avons",
-      "case": "success",
-      "end": 25.25,
-      "endOffset": 945,
-      "phones": [],
-      "start": 25.16,
-      "startOffset": 940,
-      "word": "avons"
-    },
-    {
-      "alignedWord": "un",
-      "case": "success",
-      "end": 25.28,
-      "endOffset": 948,
-      "phones": [],
-      "start": 25.25,
-      "startOffset": 946,
-      "word": "un"
-    },
-    {
-      "alignedWord": "r\u00f4le",
-      "case": "success",
-      "end": 25.36,
-      "endOffset": 953,
-      "phones": [],
-      "start": 25.28,
-      "startOffset": 949,
-      "word": "r\u00f4le"
-    },
-    {
-      "alignedWord": "immense",
-      "case": "success",
-      "end": 25.62,
-      "endOffset": 961,
-      "phones": [],
-      "start": 25.36,
-      "startOffset": 954,
-      "word": "immense"
-    },
-    {
-      "alignedWord": "corriger",
-      "case": "success",
-      "end": 26.46,
-      "endOffset": 971,
-      "phones": [],
-      "start": 26.32,
-      "startOffset": 963,
-      "word": "Corriger"
-    },
-    {
-      "alignedWord": "les",
-      "case": "success",
-      "end": 26.5,
-      "endOffset": 975,
-      "phones": [],
-      "start": 26.46,
-      "startOffset": 972,
-      "word": "les"
-    },
-    {
-      "alignedWord": "exc\u00e8s",
-      "case": "success",
-      "end": 26.62,
-      "endOffset": 981,
-      "phones": [],
-      "start": 26.51,
-      "startOffset": 976,
-      "word": "exc\u00e8s"
-    },
-    {
-      "alignedWord": "du",
-      "case": "success",
-      "end": 26.66,
-      "endOffset": 984,
-      "phones": [],
-      "start": 26.62,
-      "startOffset": 982,
-      "word": "du"
-    },
-    {
-      "alignedWord": "cours",
-      "case": "success",
-      "end": 26.72,
-      "endOffset": 990,
-      "phones": [],
-      "start": 26.66,
-      "startOffset": 985,
-      "word": "cours"
-    },
-    {
-      "alignedWord": "du",
-      "case": "success",
-      "end": 26.759999999999998,
-      "endOffset": 993,
-      "phones": [],
-      "start": 26.72,
-      "startOffset": 991,
-      "word": "du"
-    },
-    {
-      "alignedWord": "monde",
-      "case": "success",
-      "end": 26.900000000000002,
-      "endOffset": 999,
-      "phones": [],
-      "start": 26.76,
-      "startOffset": 994,
-      "word": "monde"
-    },
-    {
-      "alignedWord": "et",
-      "case": "success",
-      "end": 27.209999999999997,
-      "endOffset": 1002,
-      "phones": [],
-      "start": 27.15,
-      "startOffset": 1000,
-      "word": "et"
-    },
-    {
-      "alignedWord": "veiller",
-      "case": "success",
-      "end": 27.35,
-      "endOffset": 1010,
-      "phones": [],
-      "start": 27.21,
-      "startOffset": 1003,
-      "word": "veiller"
-    },
-    {
-      "alignedWord": "\u00e0",
-      "case": "success",
-      "end": 27.39,
-      "endOffset": 1012,
-      "phones": [],
-      "start": 27.36,
-      "startOffset": 1011,
-      "word": "\u00e0"
-    },
-    {
-      "alignedWord": "la",
-      "case": "success",
-      "end": 27.43,
-      "endOffset": 1015,
-      "phones": [],
-      "start": 27.39,
-      "startOffset": 1013,
-      "word": "la"
-    },
-    {
-      "alignedWord": "d\u00e9fense",
-      "case": "success",
-      "end": 27.56,
-      "endOffset": 1023,
-      "phones": [],
-      "start": 27.43,
-      "startOffset": 1016,
-      "word": "d\u00e9fense"
+      "endOffset": 386,
+      "phones": [
+        {
+          "duration": 0.01,
+          "phone": "ah_B"
+        },
+        {
+          "duration": 0.04,
+          "phone": "v_E"
+        }
+      ],
+      "start": 17.45,
+      "startOffset": 384,
+      "word": "of"
     },
     {
-      "alignedWord": "de",
-      "case": "success",
-      "end": 27.58,
-      "endOffset": 1026,
-      "phones": [],
-      "start": 27.56,
-      "startOffset": 1024,
-      "word": "de"
+      "case": "not-found-in-audio",
+      "endOffset": 390,
+      "startOffset": 387,
+      "word": "the"
     },
     {
-      "alignedWord": "la",
-      "case": "success",
-      "end": 27.619999999999997,
-      "endOffset": 1029,
-      "phones": [],
-      "start": 27.58,
-      "startOffset": 1027,
-      "word": "la"
+      "case": "not-found-in-audio",
+      "endOffset": 395,
+      "startOffset": 391,
+      "word": "room"
     },
     {
-      "alignedWord": "libert\u00e9",
-      "case": "success",
-      "end": 27.810000000000002,
-      "endOffset": 1037,
-      "phones": [],
-      "start": 27.62,
-      "startOffset": 1030,
-      "word": "libert\u00e9"
+      "case": "not-found-in-audio",
+      "endOffset": 407,
+      "startOffset": 396,
+      "word": "articulated"
     },
     {
-      "alignedWord": "<unk>",
-      "case": "success",
-      "end": 28.23,
-      "endOffset": 1044,
-      "phones": [],
-      "start": 28.14,
-      "startOffset": 1039,
-      "word": "C'est"
+      "case": "not-found-in-audio",
+      "endOffset": 410,
+      "startOffset": 408,
+      "word": "by"
     },
     {
-      "alignedWord": "l\u00e0",
+      "alignedWord": "speech",
       "case": "success",
-      "end": 28.31,
-      "endOffset": 1047,
-      "phones": [],
-      "start": 28.23,
-      "startOffset": 1045,
-      "word": "l\u00e0"
+      "end": 17.79,
+      "endOffset": 417,
+      "phones": [
+        {
+          "duration": 0.06,
+          "phone": "s_B"
+        },
+        {
+          "duration": 0.08,
+          "phone": "p_I"
+        },
+        {
+          "duration": 0.01,
+          "phone": "iy_I"
+        },
+        {
+          "duration": 0.01,
+          "phone": "ch_E"
+        }
+      ],
+      "start": 17.63,
+      "startOffset": 411,
+      "word": "speech"
     },
     {
-      "alignedWord": "notre",
+      "alignedWord": "i",
       "case": "success",
-      "end": 28.419999999999998,
-      "endOffset": 1053,
+      "end": 24.43,
+      "endOffset": 420,
       "phones": [],
-      "start": 28.33,
-      "startOffset": 1048,
-      "word": "notre"
+      "start": 24.38,
+      "startOffset": 419,
+      "word": "I"
     },
     {
-      "alignedWord": "vocation",
+      "alignedWord": "regard",
       "case": "success",
-      "end": 28.6,
-      "endOffset": 1062,
+      "end": 24.63,
+      "endOffset": 427,
       "phones": [],
-      "start": 28.42,
-      "startOffset": 1054,
-      "word": "vocation"
+      "start": 24.43,
+      "startOffset": 421,
+      "word": "regard"
     },
     {
-      "alignedWord": "pour",
+      "alignedWord": "this",
       "case": "success",
-      "end": 29.09,
-      "endOffset": 1068,
+      "end": 33.59,
+      "endOffset": 432,
       "phones": [],
-      "start": 29.03,
-      "startOffset": 1064,
-      "word": "Pour"
+      "start": 24.63,
+      "startOffset": 428,
+      "word": "this"
     },
     {
-      "alignedWord": "ce",
-      "case": "success",
-      "end": 29.12,
-      "endOffset": 1071,
-      "phones": [],
-      "start": 29.09,
-      "startOffset": 1069,
-      "word": "ce"
+      "case": "not-found-in-audio",
+      "endOffset": 441,
+      "startOffset": 433,
+      "word": "activity"
     },
     {
-      "alignedWord": "faire",
-      "case": "success",
-      "end": 29.25,
-      "endOffset": 1077,
-      "phones": [],
-      "start": 29.12,
-      "startOffset": 1072,
-      "word": "faire"
+      "case": "not-found-in-audio",
+      "endOffset": 445,
+      "startOffset": 442,
+      "word": "not"
     },
     {
-      "alignedWord": "nous",
-      "case": "success",
-      "end": 29.39,
-      "endOffset": 1083,
-      "phones": [],
-      "start": 29.32,
-      "startOffset": 1079,
-      "word": "nous"
+      "case": "not-found-in-audio",
+      "endOffset": 448,
+      "startOffset": 446,
+      "word": "so"
     },
     {
-      "alignedWord": "aurons",
-      "case": "success",
-      "end": 29.47,
-      "endOffset": 1090,
-      "phones": [],
-      "start": 29.39,
-      "startOffset": 1084,
-      "word": "aurons"
+      "case": "not-found-in-audio",
+      "endOffset": 453,
+      "startOffset": 449,
+      "word": "much"
     },
     {
-      "alignedWord": "besoin",
-      "case": "success",
-      "end": 29.59,
-      "endOffset": 1097,
-      "phones": [],
-      "start": 29.47,
-      "startOffset": 1091,
-      "word": "besoin"
+      "case": "not-found-in-audio",
+      "endOffset": 456,
+      "startOffset": 454,
+      "word": "as"
     },
     {
-      "alignedWord": "<unk>",
-      "case": "success",
-      "end": 29.6,
-      "endOffset": 1103,
-      "phones": [],
-      "start": 29.59,
-      "startOffset": 1098,
-      "word": "d'une"
+      "case": "not-found-in-audio",
+      "endOffset": 458,
+      "startOffset": 457,
+      "word": "a"
     },
     {
-      "alignedWord": "europe",
-      "case": "success",
-      "end": 29.74,
-      "endOffset": 1110,
-      "phones": [],
-      "start": 29.65,
-      "startOffset": 1104,
-      "word": "Europe"
+      "case": "not-found-in-audio",
+      "endOffset": 472,
+      "startOffset": 459,
+      "word": "demonstration"
     },
     {
-      "alignedWord": "plus",
-      "case": "success",
-      "end": 29.799999999999997,
-      "endOffset": 1115,
-      "phones": [],
-      "start": 29.74,
-      "startOffset": 1111,
-      "word": "plus"
+      "case": "not-found-in-audio",
+      "endOffset": 475,
+      "startOffset": 473,
+      "word": "of"
     },
     {
-      "alignedWord": "efficace",
-      "case": "success",
-      "end": 30.0,
-      "endOffset": 1124,
-      "phones": [],
-      "start": 29.81,
-      "startOffset": 1116,
-      "word": "efficace"
+      "case": "not-found-in-audio",
+      "endOffset": 477,
+      "startOffset": 476,
+      "word": "a"
     },
     {
-      "alignedWord": "plus",
-      "case": "success",
-      "end": 30.06,
-      "endOffset": 1130,
-      "phones": [],
-      "start": 30.0,
-      "startOffset": 1126,
-      "word": "plus"
+      "case": "not-found-in-audio",
+      "endOffset": 486,
+      "startOffset": 478,
+      "word": "physical"
     },
     {
-      "alignedWord": "d\u00e9mocratique",
-      "case": "success",
-      "end": 30.34,
-      "endOffset": 1143,
-      "phones": [],
-      "start": 30.06,
-      "startOffset": 1131,
-      "word": "d\u00e9mocratique"
+      "case": "not-found-in-audio",
+      "endOffset": 491,
+      "startOffset": 487,
+      "word": "fact"
     },
     {
-      "alignedWord": "plus",
-      "case": "success",
-      "end": 30.49,
-      "endOffset": 1149,
-      "phones": [],
-      "start": 30.43,
-      "startOffset": 1145,
-      "word": "plus"
+      "case": "not-found-in-audio",
+      "endOffset": 496,
+      "startOffset": 493,
+      "word": "but"
     },
     {
-      "alignedWord": "politique",
-      "case": "success",
-      "end": 30.729999999999997,
-      "endOffset": 1159,
-      "phones": [],
-      "start": 30.49,
-      "startOffset": 1150,
-      "word": "politique"
+      "case": "not-found-in-audio",
+      "endOffset": 501,
+      "startOffset": 497,
+      "word": "more"
     },
     {
-      "alignedWord": "car",
-      "case": "success",
-      "end": 30.99,
-      "endOffset": 1164,
-      "phones": [],
-      "start": 30.91,
-      "startOffset": 1161,
-      "word": "car"
+      "case": "not-found-in-audio",
+      "endOffset": 504,
+      "startOffset": 502,
+      "word": "as"
     },
     {
-      "alignedWord": "elle",
-      "case": "success",
-      "end": 31.029999999999998,
-      "endOffset": 1169,
-      "phones": [],
-      "start": 30.99,
-      "startOffset": 1165,
-      "word": "elle"
+      "case": "not-found-in-audio",
+      "endOffset": 506,
+      "startOffset": 505,
+      "word": "a"
     },
     {
-      "alignedWord": "est",
-      "case": "success",
-      "end": 31.060000000000002,
-      "endOffset": 1173,
-      "phones": [],
-      "start": 31.03,
-      "startOffset": 1170,
-      "word": "est"
+      "case": "not-found-in-audio",
+      "endOffset": 510,
+      "startOffset": 507,
+      "word": "way"
     },
     {
-      "alignedWord": "<unk>",
-      "case": "success",
-      "end": 31.349999999999998,
-      "endOffset": 1186,
-      "phones": [],
-      "start": 31.06,
-      "startOffset": 1174,
-      "word": "l'instrument"
+      "case": "not-found-in-audio",
+      "endOffset": 513,
+      "startOffset": 511,
+      "word": "to"
     },
     {
-      "alignedWord": "de",
-      "case": "success",
-      "end": 31.58,
-      "endOffset": 1189,
-      "phones": [],
-      "start": 31.52,
-      "startOffset": 1187,
-      "word": "de"
+      "case": "not-found-in-audio",
+      "endOffset": 520,
+      "startOffset": 514,
+      "word": "smooth"
     },
     {
-      "alignedWord": "notre",
-      "case": "success",
-      "end": 31.689999999999998,
-      "endOffset": 1195,
-      "phones": [],
-      "start": 31.58,
-      "startOffset": 1190,
-      "word": "notre"
+      "case": "not-found-in-audio",
+      "endOffset": 524,
+      "startOffset": 521,
+      "word": "out"
     },
     {
-      "alignedWord": "puissance",
-      "case": "success",
-      "end": 31.950000000000003,
-      "endOffset": 1205,
-      "phones": [],
-      "start": 31.69,
-      "startOffset": 1196,
-      "word": "puissance"
+      "case": "not-found-in-audio",
+      "endOffset": 528,
+      "startOffset": 525,
+      "word": "any"
     },
     {
-      "alignedWord": "et",
-      "case": "success",
-      "end": 32.16,
-      "endOffset": 1208,
-      "phones": [],
-      "start": 32.11,
-      "startOffset": 1206,
-      "word": "et"
+      "case": "not-found-in-audio",
+      "endOffset": 543,
+      "startOffset": 529,
+      "word": "irregularities"
     },
     {
-      "alignedWord": "de",
-      "case": "success",
-      "end": 32.18,
-      "endOffset": 1211,
-      "phones": [],
-      "start": 32.16,
-      "startOffset": 1209,
-      "word": "de"
+      "case": "not-found-in-audio",
+      "endOffset": 546,
+      "startOffset": 544,
+      "word": "my"
     },
     {
-      "alignedWord": "notre",
-      "case": "success",
-      "end": 32.27,
-      "endOffset": 1217,
-      "phones": [],
-      "start": 32.18,
-      "startOffset": 1212,
-      "word": "notre"
+      "case": "not-found-in-audio",
+      "endOffset": 553,
+      "startOffset": 547,
+      "word": "speech"
     },
     {
-      "alignedWord": "souverainet\u00e9",
-      "case": "success",
-      "end": 32.510000000000005,
-      "endOffset": 1230,
-      "phones": [],
-      "start": 32.27,
-      "startOffset": 1218,
-      "word": "souverainet\u00e9"
+      "case": "not-found-in-audio",
+      "endOffset": 559,
+      "startOffset": 554,
+      "word": "might"
     },
     {
-      "alignedWord": "j",
-      "case": "success",
-      "end": 32.93,
-      "endOffset": 1233,
-      "phones": [],
-      "start": 32.83,
-      "startOffset": 1232,
-      "word": "J"
+      "case": "not-found-in-audio",
+      "endOffset": 564,
+      "startOffset": 560,
+      "word": "have"
     }
   ]
 }

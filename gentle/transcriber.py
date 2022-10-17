@@ -18,7 +18,7 @@ class MultiThreadedTranscriber:
         self.lang=lang
         self.kaldi_queue = kaldi_queue
 
-    def transcribe(self, wavfile, wavfile_path, gpu_id, device ='cpu', progress_cb=None):
+    def transcribe(self, wavfile, wavfile_path, gpu_id, max_batch_size, cuda_memory_prop,  device ='cpu', progress_cb=None):
         wav_obj = wave.open(wavfile, 'rb')
         duration = wav_obj.getnframes() / float(wav_obj.getframerate())
         n_chunks = int(math.ceil(duration / float(self.chunk_len - self.overlap_t)))
@@ -136,7 +136,7 @@ class MultiThreadedTranscriber:
             # 5 - launch external bash script for kaldi decoding on gpu
             os.chdir('..')
             print("Launching kaldi to decode the input audio file")
-            subprocess.call(["./kaldi_decode.sh", self.lang, job_folder_name, gpu_id, self.hclg_path])
+            subprocess.call(["./kaldi_decode.sh", self.lang, job_folder_name, gpu_id, self.hclg_path, str(max_batch_size), str(cuda_memory_prop)])
 
             # 6 - populate the chunk string with the trascription and starting time of each segment (should retrive this information from decodings or lattices)
             print("Create Gentle data structures with decoded text from Kaldi ")

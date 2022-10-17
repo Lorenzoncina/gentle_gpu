@@ -111,7 +111,6 @@ def make_bigram_language_model(kaldi_seq, proto_langdir, nnet_gpu_path, **kwargs
     txt_fst_file.close()
 
     hclg_filename = tempfile.mktemp(suffix='_HCLG.fst')
-    print("debug lang model", kwargs['lang'])
     if kwargs['lang'] == 'es'  or kwargs['lang'] == "ar" or kwargs['lang'] == "zh" or kwargs['lang'] == "ru" or kwargs['lang'] == "pt" or kwargs['lang'] == "it" or kwargs['lang'] == "en_wipo" or kwargs['lang'] == "fr":
         context_dep = '2'
     else:

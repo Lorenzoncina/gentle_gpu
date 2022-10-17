@@ -35,6 +35,12 @@ parser.add_argument(
         '--device', type=str,
         help='Decoder type between cpu and gpu one')
 parser.add_argument(
+        '--max_batch_size', type=int,
+        help='The maximum batch size to be used by the decoder. This is also the number of lanes in the CudaDecoder. Larger = Faster and more GPU memory used')
+parser.add_argument(
+        '--cuda_memory_proportion', type=float,
+        help='Proportion of the GPU device memory that the allocator should allocate at the start (float, default = 0.5)')
+parser.add_argument(
         'audiofile', type=str,
         help='audio file')
 parser.add_argument(
@@ -50,6 +56,8 @@ logging.getLogger().setLevel(log_level)
 lang = args.lang
 gpu_id=args.gpu_id
 decoder_type = args.device
+max_batch_size = args.max_batch_size
+cuda_memory_prop = args.cuda_memory_proportion
 disfluencies = set(['uh', 'um'])
 
 def on_progress(p):
@@ -66,7 +74,7 @@ logging.info("converting audio to 8K sampled wav")
 with gentle.resampled(args.audiofile) as wavfile:
     logging.info("starting alignment")
     aligner = gentle.ForcedAligner(resources, transcript, nthreads=args.nthreads, disfluency=args.disfluency, conservative=args.conservative, disfluencies=disfluencies, lang=lang)
-    result = aligner.transcribe(wavfile, args.audiofile, progress_cb=on_progress, logging=logging, device = decoder_type, gpu_id=gpu_id)
+    result = aligner.transcribe(wavfile, args.audiofile, progress_cb=on_progress, logging=logging, device = decoder_type, gpu_id=gpu_id, max_batch_size=max_batch_size, cuda_memory_prop=cuda_memory_prop)
 
 fh = open(args.output, 'w', encoding="utf-8") if args.output else sys.stdout
 fh.write(result.to_json(indent=2))

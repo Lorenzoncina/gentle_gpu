@@ -15,6 +15,7 @@ ext/k3_gentle_original
 ext/m3_gentle_original
 ext/k3
 ext/m3
-french_output.json
+*.json
 ext/kaldi/
-kaldi/decoding/conf/*_decoding_job_ivectors_conf/
+kaldi_decoding/transcript.txt
+kaldi_decoding/conf/*_job_ivectors_conf

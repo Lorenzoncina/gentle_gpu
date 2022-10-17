@@ -43,7 +43,7 @@ if [ $stage -le 1  ]; then
   ivector_conf_path="conf/"$job_folder_name"_ivectors_conf/ivector.conf"
   #select the proper gpu
   export CUDA_VISIBLE_DEVICE=$3
-
+  
   $cmd  $dir/log/batched-wav-nnet3-cuda2-batchsize2.log \
     batched-wav-nnet3-cuda \
     --cuda-use-tensor-cores=false \
@@ -58,7 +58,8 @@ if [ $stage -le 1  ]; then
     --frames-per-chunk=$frames_per_chunk \
     --global-cmvn-stats=data/french_test_big/cmvn.scp   \
     --gpu-feature-extract=false \
-    --max-batch-size=128 \
+    --max-batch-size=$5 \
+    --cuda-memory-proportion=$6  \
     --num-channels=496 \
     --beam=$beam \
     --lattice-beam=$lattice_beam \
