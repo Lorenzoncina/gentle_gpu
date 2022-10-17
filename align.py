@@ -27,7 +27,7 @@ parser.add_argument(
         help='the log level (DEBUG, INFO, WARNING, ERROR, or CRITICAL)')
 parser.add_argument(
         '--lang', default="en",
-        help='language of alignment (en, fr, es)')
+        help='language of alignment (en, en_gentle fr, es, ar, ru, zh)')
 parser.add_argument(
         '--gpu_id', type=str,
         help='gpu id to use')

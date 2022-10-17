@@ -56,7 +56,7 @@ class MultiThreadedTranscriber:
                 f.write(splice_config)
                 lang = self.lang+'_exp'
                 extractor_dir = os.path.join('../exp',lang,'tdnn_7b_chain_online/ivector_extractor')
-                text_list = ['--lda-matrix='+extractor_dir+'//final.mat\n','--global-cmvn-stats='+extractor_dir+'//global_cmvn.stats\n', '--diag-ubm='+extractor_dir+'//final.dubm\n','--ivector-extractor='+extractor_dir+'//final.ie\n', '--num-gselect=5\n', '--min-post=0.025\n', '--posterior-scale=0.1\n', '--max-remembered-frames=1000\n','--max-count=0\n' ]
+                text_list = ['--lda-matrix='+extractor_dir+'//final.mat\n','--global-cmvn-stats='+extractor_dir+'//global_cmvn.stats\n', '--diag-ubm='+extractor_dir+'//final.dubm\n','--ivector-extractor='+extractor_dir+'//final.ie\n', '--num-gselect=5\n', '--min-post=0.025\n', '--posterior-scale=0.1\n', '--max-remembered-frames=1000\n','--max-count=100\n' ]
                 f.writelines(text_list)
 
             #create the new folder for this job where all kaldi files are then generated

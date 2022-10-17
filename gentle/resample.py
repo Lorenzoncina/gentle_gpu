@@ -31,7 +31,7 @@ def resample_ffmpeg(infile, outfile, offset=None, duration=None):
     ] + offset + [
         '-i', infile,
     ] + duration + [
-        '-ac', '1', '-ar', '8000',
+        '-ac', '1', '-ar', '16000',
         '-acodec', 'pcm_s16le',
         outfile
     ]
@@ -59,7 +59,7 @@ def resample_sox(infile, outfile, offset=None, duration=None):
         '-b', '16',
         '-c', '1',
         '-e', 'signed-integer',
-        '-r', '8000',
+        '-r', '16000',
         '-L',
         outfile
     ] + trim
