@@ -13,15 +13,15 @@ lang=$1_exp
 export dir=../exp/$lang/tdnn_7b_chain_online
 export graph_dir=$dir/graph_pp
 
+job_folder_name=$2
+output_dir=decoding_jobs/$lang/$2
+
 
 #GPU decoding with cuda decoder
 graphdir=$graph_dir
 data=data/$2/
-dir=$dir/$2
-job_folder_name=$2
-srcdir=`dirname $dir`; # Assume model directory one level up from decoding directory.
 iter=final
-model=$srcdir/$iter.mdl
+model=$dir/$iter.mdl
 
 acwt=1.0  # Just a default value, used for adaptation and beam-pruning..
 post_decode_acwt=10.0
@@ -33,20 +33,20 @@ max_active=7000
 
 
 if [ "$post_decode_acwt" == 1.0 ]; then
-  lat_wspecifier="ark:|gzip -c >$dir/lat.JOB.gz"
+  lat_wspecifier="ark:|gzip -c >$output_dir/lat.JOB.gz"
 else
-  lat_wspecifier="ark:|lattice-scale --acoustic-scale=$post_decode_acwt ark:- ark:- | gzip -c >$dir/lat.JOB.gz"
+  lat_wspecifier="ark:|lattice-scale --acoustic-scale=$post_decode_acwt ark:- ark:- | gzip -c >$output_dir/lat.JOB.gz"
 fi
 
-mkdir -p $dir/log
+mkdir -p $output_dir/log
 
-stage=1
-if [ $stage -le 1  ]; then
-  ivector_conf_path="conf/"$job_folder_name"_ivectors_conf/ivector.conf"
-  #select the proper gpu
-  export CUDA_VISIBLE_DEVICE=$3
+
+
+ivector_conf_path="conf/"$job_folder_name"_ivectors_conf/ivector.conf"
+#select the proper gpu
+export CUDA_VISIBLE_DEVICE=$3
   
-  $cmd  $dir/log/batched-wav-nnet3-cuda2-batchsize2.log \
+$cmd  $output_dir/log/batched-wav-nnet3-cuda2-batchsize2.log \
     batched-wav-nnet3-cuda \
     --cuda-use-tensor-cores=false \
     --iterations=1 \
@@ -71,17 +71,17 @@ if [ $stage -le 1  ]; then
     $4 \
     scp:$data/wav.scp \
     $lat_wspecifier
-fi
+
 
 
 #decode lattices
 #move to the decoding folder for this job
-cd ../exp/$lang/tdnn_7b_chain_online
-cd $2
+cd $output_dir
 echo "actual folder (should be the decoding folder for this job)"
 echo "Script executed from: ${PWD}"
 
-lattice-1best --lm-scale=12 "ark:zcat lat.JOB.gz |" ark:- | lattice-align-words ../../../../exp/$lang/langdir/phones/word_boundary.int ../final.mdl ark:- ark:- | nbest-to-ctm ark:- - | ../../../../kaldi_decoding/utils/int2sym.pl -f 5 ../../../../exp/$lang/langdir/words.txt > transcript.txt
+lattice-1best --lm-scale=12 "ark:zcat lat.JOB.gz |" ark:- | lattice-align-words ../../../../exp/$lang/langdir/phones/word_boundary.int ../../../../exp/$lang/tdnn_7b_chain_online/final.mdl ark:- ark:- | nbest-to-ctm ark:- - | ../../../utils/int2sym.pl -f 5 ../../../../exp/$lang/langdir/words.txt > transcript.txt
+
 
 
 echo "end decoding"

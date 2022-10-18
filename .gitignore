@@ -19,3 +19,4 @@ ext/m3
 ext/kaldi/
 kaldi_decoding/transcript.txt
 kaldi_decoding/conf/*_job_ivectors_conf
+kaldi_decoding/decoding_jobs/
