@@ -71,7 +71,7 @@ with open(args.txtfile, encoding="utf-8") as fh:
 resources = gentle.Resources(lang)
 logging.info("converting audio to 8K sampled wav")
 
-with gentle.resampled(args.audiofile) as wavfile:
+with gentle.resampled(args.audiofile, lang) as wavfile:
     logging.info("starting alignment")
     aligner = gentle.ForcedAligner(resources, transcript, nthreads=args.nthreads, disfluency=args.disfluency, conservative=args.conservative, disfluencies=disfluencies, lang=lang)
     result = aligner.transcribe(wavfile, args.audiofile, progress_cb=on_progress, logging=logging, device = decoder_type, gpu_id=gpu_id, max_batch_size=max_batch_size, cuda_memory_prop=cuda_memory_prop)

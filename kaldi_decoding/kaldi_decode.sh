@@ -2,6 +2,8 @@
 
 #This script perform kaldi decoding using  gpu cuda decoder (batched-wav-nnet3-cuda) to improve
 #s2t decoding performances
+source ./path.sh
+
 echo "start decoding"
 export train_cmd="run.pl"
 export decode_cmd="run.pl --mem 2G"
@@ -78,7 +80,6 @@ cd ../exp/$lang/tdnn_7b_chain_online
 cd $2
 echo "actual folder (should be the decoding folder for this job)"
 echo "Script executed from: ${PWD}"
-#source ./path.sh
 
 lattice-1best --lm-scale=12 "ark:zcat lat.JOB.gz |" ark:- | lattice-align-words ../../../../exp/$lang/langdir/phones/word_boundary.int ../final.mdl ark:- ark:- | nbest-to-ctm ark:- - | ../../../../kaldi_decoding/utils/int2sym.pl -f 5 ../../../../exp/$lang/langdir/words.txt > transcript.txt
 

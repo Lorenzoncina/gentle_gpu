@@ -11,7 +11,7 @@ from .util.paths import get_binary
 FFMPEG = get_binary("ffmpeg")
 SOX = get_binary("sox")
 
-def resample_ffmpeg(infile, outfile, offset=None, duration=None):
+def resample_ffmpeg(infile,lang, outfile, offset=None, duration=None):
     '''
     Use FFMPEG to convert a media file to a wav file sampled at 8K
     '''
@@ -23,19 +23,106 @@ def resample_ffmpeg(infile, outfile, offset=None, duration=None):
         duration = []
     else:
         duration = ['-t', str(duration)]
+    
 
-    cmd = [
-        FFMPEG,
-        '-loglevel', 'panic',
-        '-y',
-    ] + offset + [
-        '-i', infile,
-    ] + duration + [
-        '-ac', '1', '-ar', '16000',
-        '-acodec', 'pcm_s16le',
-        outfile
-    ]
-    return subprocess.call(cmd)
+    if lang == 'en':
+        cmd = [
+            FFMPEG,
+            '-loglevel', 'panic',
+            '-y',
+        ] + offset + [
+            '-i', infile,
+        ] + duration + [
+            '-ac', '1', '-ar', '16000',
+            '-acodec', 'pcm_s16le',
+            outfile
+        ]
+        return subprocess.call(cmd)
+
+    if lang == 'fr':
+        cmd = [
+            FFMPEG,
+            '-loglevel', 'panic',
+            '-y',
+        ] + offset + [
+            '-i', infile,
+        ] + duration + [
+            '-ac', '1', '-ar', '16000',
+            '-acodec', 'pcm_s16le',
+            outfile
+        ]
+        return subprocess.call(cmd)
+
+    if lang == 'es':
+        cmd = [
+            FFMPEG,
+            '-loglevel', 'panic',
+            '-y',
+        ] + offset + [
+            '-i', infile,
+        ] + duration + [
+            '-ac', '1', '-ar', '16000',
+            '-acodec', 'pcm_s16le',
+            outfile
+        ]
+        return subprocess.call(cmd)
+
+    if lang == 'ar':
+        cmd = [
+            FFMPEG,
+            '-loglevel', 'panic',
+            '-y',
+        ] + offset + [
+            '-i', infile,
+        ] + duration + [
+            '-ac', '1', '-ar', '16000',
+            '-acodec', 'pcm_s16le',
+            outfile
+        ]
+        return subprocess.call(cmd)
+
+    if lang == 'zh':
+        cmd = [
+            FFMPEG,
+            '-loglevel', 'panic',
+            '-y',
+        ] + offset + [
+            '-i', infile,
+        ] + duration + [
+            '-ac', '1', '-ar', '16000',
+            '-acodec', 'pcm_s16le',
+            outfile
+        ]
+        return subprocess.call(cmd)
+
+    if lang == 'ru':
+        cmd = [
+            FFMPEG,
+            '-loglevel', 'panic',
+            '-y',
+        ] + offset + [
+            '-i', infile,
+        ] + duration + [
+            '-ac', '1', '-ar', '16000',
+            '-acodec', 'pcm_s16le',
+            outfile
+        ]
+        return subprocess.call(cmd)
+
+    if lang == 'en_gentle':
+        cmd = [
+            FFMPEG,
+            '-loglevel', 'panic',
+            '-y',
+        ] + offset + [
+            '-i', infile,
+        ] + duration + [
+            '-ac', '1', '-ar', '8000',
+            '-acodec', 'pcm_s16le',
+            outfile
+        ]
+        return subprocess.call(cmd)
+
 
 def resample_sox(infile, outfile, offset=None, duration=None):
     '''
@@ -65,17 +152,17 @@ def resample_sox(infile, outfile, offset=None, duration=None):
     ] + trim
     return subprocess.call(cmd)
 
-def resample(infile, outfile, offset=None, duration=None):
+def resample(infile, lang, outfile, offset=None, duration=None):
     if not os.path.isfile(infile):
         raise IOError("Not a file: %s" % infile)
     if shutil.which(FFMPEG):
-        return resample_ffmpeg(infile, outfile, offset, duration)
+        return resample_ffmpeg(infile, lang, outfile, offset, duration)
     else:
         return resample_sox(infile, outfile, offset, duration)
 
 @contextmanager
-def resampled(infile, offset=None, duration=None):
+def resampled(infile, lang, offset=None, duration=None):
     with tempfile.NamedTemporaryFile(suffix='.wav') as fp:
-        if resample(infile, fp.name, offset, duration) != 0:
+        if resample(infile,lang, fp.name, offset, duration) != 0:
             raise RuntimeError("Unable to resample/encode '%s'" % infile)
         yield fp.name
