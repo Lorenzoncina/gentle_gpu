@@ -37,10 +37,11 @@ class MultiThreadedTranscriber:
             audio_file_path_list = wavfile_path.split('/')
             audio_file_name = audio_file_path_list[len(audio_file_path_list)-1]
             job_folder_name = audio_file_name.split('.')[0]+"_decoding_job"
+            lang_folder_name = self.lang + "_exp"
 
             # 1 create ivector.conf which is the configuration needed to compute ivector in the gpu decoder.
             os.chdir('kaldi_decoding/conf')
-            conf_path_name = job_folder_name + "_ivectors_conf"
+            conf_path_name = lang_folder_name + "_ivectors_conf"
             try:
                 os.mkdir(conf_path_name)
             except FileExistsError:

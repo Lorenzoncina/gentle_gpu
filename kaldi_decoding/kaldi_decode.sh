@@ -41,8 +41,7 @@ fi
 mkdir -p $output_dir/log
 
 
-
-ivector_conf_path="conf/"$job_folder_name"_ivectors_conf/ivector.conf"
+ivector_conf_path="conf/"$lang"_ivectors_conf/ivector.conf"
 #select the proper gpu
 export CUDA_VISIBLE_DEVICE=$3
   
@@ -61,10 +60,10 @@ $cmd  $output_dir/log/batched-wav-nnet3-cuda2-batchsize2.log \
     --global-cmvn-stats=data/french_test_big/cmvn.scp   \
     --gpu-feature-extract=false \
     --max-batch-size=$5 \
-    --batch-drain-size=2 \
-    --edge-minibatch-size=8 \
+    --batch-drain-size=128 \
+    --edge-minibatch-size=128 \
     --minibatch-size=512 \
-    --cuda-use-tensor-cores=true \
+    --cuda-use-tensor-cores=false \
     --cuda-memory-proportion=$6  \
     --num-channels=128 \
     --beam=$beam \

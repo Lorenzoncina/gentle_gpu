@@ -22,7 +22,7 @@ class ForcedAligner():
 
     def transcribe(self, wavfile, wavfile_path, progress_cb=None, logging=None, device='cpu', gpu_id=0, max_batch_size= 128, cuda_memory_prop = 0.5):
         words, duration = self.mtt.transcribe(wavfile, wavfile_path, gpu_id, max_batch_size, cuda_memory_prop, device,  progress_cb=progress_cb)
-
+        
         # Clear queue (would this be gc'ed?)
         for i in range(self.nthreads):
             k = self.queue.get()
