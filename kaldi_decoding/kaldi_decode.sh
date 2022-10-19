@@ -14,8 +14,8 @@ export dir=../exp/$lang/tdnn_7b_chain_online
 export graph_dir=$dir/graph_pp
 
 job_folder_name=$2
-output_dir=decoding_jobs/$lang/$2
-
+#output_dir=decoding_jobs/$lang/$2
+output_dir=data/$2/decoding
 
 #GPU decoding with cuda decoder
 graphdir=$graph_dir
@@ -84,7 +84,6 @@ echo "actual folder (should be the decoding folder for this job)"
 echo "Script executed from: ${PWD}"
 
 lattice-1best --lm-scale=12 "ark:zcat lat.JOB.gz |" ark:- | lattice-align-words ../../../../exp/$lang/langdir/phones/word_boundary.int ../../../../exp/$lang/tdnn_7b_chain_online/final.mdl ark:- ark:- | nbest-to-ctm ark:- - | ../../../utils/int2sym.pl -f 5 ../../../../exp/$lang/langdir/words.txt > transcript.txt
-
 
 
 echo "end decoding"
