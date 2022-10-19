@@ -38,7 +38,7 @@ class MultiThreadedTranscriber:
             audio_file_name = audio_file_path_list[len(audio_file_path_list)-1]
             job_folder_name = audio_file_name.split('.')[0]+"_decoding_job"
 
-            # 0.1 create ivector.conf which is the configuration needed to compute ivector in the gpu decoder.
+            # 1 create ivector.conf which is the configuration needed to compute ivector in the gpu decoder.
             os.chdir('kaldi_decoding/conf')
             conf_path_name = job_folder_name + "_ivectors_conf"
             try:
@@ -56,7 +56,7 @@ class MultiThreadedTranscriber:
                 f.write(splice_config)
                 lang = self.lang+'_exp'
                 extractor_dir = os.path.join('../exp',lang,'tdnn_7b_chain_online/ivector_extractor')
-                text_list = ['--lda-matrix='+extractor_dir+'//final.mat\n','--global-cmvn-stats='+extractor_dir+'//global_cmvn.stats\n', '--diag-ubm='+extractor_dir+'//final.dubm\n','--ivector-extractor='+extractor_dir+'//final.ie\n', '--num-gselect=5\n', '--min-post=0.025\n', '--posterior-scale=0.1\n', '--max-remembered-frames=1000\n','--max-count=100\n' ]
+                text_list = ['--lda-matrix='+extractor_dir+'//final.mat\n','--global-cmvn-stats='+extractor_dir+'//global_cmvn.stats\n', '--diag-ubm='+extractor_dir+'//final.dubm\n','--ivector-extractor='+extractor_dir+'//final.ie\n', '--num-gselect=5\n', '--min-post=0.025\n', '--posterior-scale=0.1\n', '--max-remembered-frames=1000\n','--max-count=0\n' ]
                 f.writelines(text_list)
 
             #create the new folder for this job where all kaldi files are then generated
@@ -67,81 +67,50 @@ class MultiThreadedTranscriber:
             except FileExistsError:
                 pass
 
-            # 1 - create spk2utt and utt2spk files (in this case we don’t care about designating different speaker ids, so speaker id is equal to utterance id)
-            utt2spk_file = os.path.join(job_folder_name, 'utt2spk')
-            spk2utt_file = os.path.join(job_folder_name, 'spk2utt')
-            utt2spk_path = os.path.join(os.getcwd(), utt2spk_file)
-            spk2utt_path = os.path.join(os.getcwd(), spk2utt_file)
-            utt2spk = open(utt2spk_path, 'w')
-            spk2utt = open(spk2utt_path, 'w')
 
             # 2 - create wav.scp file which has one single entry
             wav_scp_file = os.path.join(job_folder_name, 'wav.scp')
             wav_scp_path = os.path.join(os.getcwd(), wav_scp_file)
-            with open(wav_scp_path, 'w') as wav_scp:
-                audio_file_path = gentle_working_dir +'/' + wavfile_path
-                line = "utt1 " + " ffmpeg -vn -i "  + audio_file_path + " -ac 1 -ar 16000 -f wav -|"
-                wav_scp.write(line)
-
-            # 3 - create segment file, each entry will be one chunk of audio. it will be filled in the chunk_to_segment function
-            seg_name = os.path.join(job_folder_name, 'segments')
-            seg_file_path = os.path.join(os.getcwd(), seg_name)
-            segments = open(seg_file_path, 'w')
-
-
+            wav_scp =  open(wav_scp_path, 'w') 
+            audio_file_path = os.path.join(gentle_working_dir,wavfile_path)
+    
             """
-            This function fills the segments, utt2spk and spk2utt files with all the informations for each segment
+            This function fills the wav.scp file. It needs to have a single line for each segment. Each of these segments will be decoded
+            separatly by the cuda decoder.
             """
-            def chunk_to_segment(idx, chunks_number):
-                # 0 - extract <segment-begin> <segment-end> for the chunk
+            def chunk_to_wavscp_segment(idx, chunks_number):
+                # extract start time of each segment
                 wav_obj = wave.open(wavfile, 'rb')
                 #start time of this audio chunk
                 start_t = idx * (self.chunk_len - self.overlap_t)
-                end_t = 0
-                if (idx < chunks_number -1):
-                    duration = int(self.chunk_len * wav_obj.getframerate())
-                    duration_seconds = duration / wav_obj.getframerate()
-                    end_t = start_t + duration_seconds
-                else:
-                    #for the last chunck, end_t will be the lenght of the entire audio file
-                    frames = wav_obj.getnframes()
-                    rate = wav_obj.getframerate()
-                    duration = frames / float(rate)
-                    end_t = duration
+            
+                duration = int(self.chunk_len * wav_obj.getframerate())
+                duration_seconds = duration / wav_obj.getframerate()
 
-                # add the chunk informations in a new line in the segment file
+                # add the chunk informations in a new line in the wav.scp file
                 recording_id = "utt1"
-                utterance_id = recording_id + "_"  + str(start_t) + "_" +  str(end_t)
-                line = utterance_id + " " + recording_id + " " + str(start_t) + " " +  str(end_t) + "\n"
-                segments.write(line)
+                utterance_id = recording_id + "_"  + str(start_t) + "_" +  str(duration_seconds)
+                line = utterance_id + " ffmpeg -vn -ss "+ str(start_t)  +" -t "+ str(duration_seconds)  + " -i "  + audio_file_path + " -ac 1 -ar 16000 -f wav -| \n"
+                wav_scp.write(line)
 
-                # 
-                line_2 = utterance_id + " " + utterance_id + "\n"
-                utt2spk.write(line_2)
-                spk2utt.write(line_2)
+            pool = Pool(min(n_chunks, 1))
 
-
-            pool = Pool(min(n_chunks, self.nthreads))
-
-            # 4 - create kaldi files and populate segments_file with informations regarding each chunk
+            # 3 - Populate wav_scp file with informations regarding each chunk
             print("Creating Kaldi files for this audio file ")
-            pool.starmap(chunk_to_segment, zip(range(n_chunks),repeat(n_chunks)))
+            pool.starmap(chunk_to_wavscp_segment, zip(range(n_chunks),repeat(n_chunks)))
             pool.close()
-            segments.close()
-            utt2spk.close()
-            spk2utt.close()
+            wav_scp.close()
             chunks.sort(key=lambda x: x['start'])
 
 
-            # 5 - launch external bash script for kaldi decoding on gpu
+            # 4 - launch external bash script for kaldi decoding on gpu
             os.chdir('..')
             print("Launching kaldi to decode the input audio file")
             subprocess.call(["./kaldi_decode.sh", self.lang, job_folder_name, gpu_id, self.hclg_path, str(max_batch_size), str(cuda_memory_prop)])
 
-            # 6 - populate the chunk string with the trascription and starting time of each segment (should retrive this information from decodings or lattices)
+            # 5 - populate the chunk string with the trascription and starting time of each segment (should retrive this information from decodings or lattices)
             print("Create Gentle data structures with decoded text from Kaldi ")
             language_folder= self.lang+"_exp"
-            #exp_folder = os.path.join("../exp",language_folder , "tdnn_7b_chain_online", job_folder_name , "transcript.txt")
             exp_folder = os.path.join("decoding_jobs", language_folder, job_folder_name, "transcript.txt")
             path = os.path.join( os.getcwd(), exp_folder)
             decoding_file = open(path, 'r')
@@ -169,7 +138,6 @@ class MultiThreadedTranscriber:
                         segment = []
                         segment.append(line)
 
-
             #Refactor the information into the proper data structure expected by Gentle
             for idx, segment in enumerate(all_segments):
                 ret = []
@@ -186,7 +154,6 @@ class MultiThreadedTranscriber:
                     }
                     ret.append(wd)
                 chunks.append({"start": start_t_seg , "words": ret})
-        
         else:
             #CPU decoder
 
@@ -225,7 +192,7 @@ class MultiThreadedTranscriber:
 
 
 
-        # 7 - Once the Chunks list is populetd with the cpu or gpu decoder, continue with Gentle code
+        # 6 - Once the Chunks list is populetd with the cpu or gpu decoder, continue with Gentle code
 
         # Combine chunks
         words = []

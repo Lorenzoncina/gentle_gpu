@@ -61,8 +61,12 @@ $cmd  $output_dir/log/batched-wav-nnet3-cuda2-batchsize2.log \
     --global-cmvn-stats=data/french_test_big/cmvn.scp   \
     --gpu-feature-extract=false \
     --max-batch-size=$5 \
+    --batch-drain-size=2 \
+    --edge-minibatch-size=8 \
+    --minibatch-size=512 \
+    --cuda-use-tensor-cores=true \
     --cuda-memory-proportion=$6  \
-    --num-channels=496 \
+    --num-channels=128 \
     --beam=$beam \
     --lattice-beam=$lattice_beam \
     --max-active=$max_active \
