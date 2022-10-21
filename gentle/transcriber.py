@@ -11,8 +11,9 @@ from gentle import transcription
 from multiprocessing.pool import ThreadPool as Pool
 
 class MultiThreadedTranscriber:
-    def __init__(self, kaldi_queue,hclg_path, chunk_len=20, overlap_t=2, nthreads=4, lang='lang'):
+    def __init__(self, kaldi_queue, hclg_path, resources, chunk_len=20, overlap_t=2, nthreads=4, lang='lang'):
         self.hclg_path = hclg_path
+        self.resources=resources
         self.chunk_len = chunk_len
         self.overlap_t = overlap_t
         self.nthreads = nthreads
@@ -57,7 +58,7 @@ class MultiThreadedTranscriber:
                 splice_config='--splice-config=conf/splice.conf\n'
                 f.write(splice_config)
                 lang = self.lang+'_exp'
-                extractor_dir = os.path.join('../exp',lang,'tdnn_7b_chain_online/ivector_extractor')
+                extractor_dir = os.path.join('../exp',lang, self.resources.model_name ,'ivector_extractor')
                 text_list = ['--lda-matrix='+extractor_dir+'//final.mat\n','--global-cmvn-stats='+extractor_dir+'//global_cmvn.stats\n', '--diag-ubm='+extractor_dir+'//final.dubm\n','--ivector-extractor='+extractor_dir+'//final.ie\n', '--num-gselect=5\n', '--min-post=0.025\n', '--posterior-scale=0.1\n', '--max-remembered-frames=1000\n','--max-count=0\n' ]
                 f.writelines(text_list)
 
@@ -115,7 +116,7 @@ class MultiThreadedTranscriber:
             # 4 - launch external bash script for kaldi decoding on gpu
             os.chdir('..')
             print("Launching kaldi to decode the input audio file")
-            subprocess.call(["./kaldi_decode.sh", self.lang, job_folder_name, gpu_id, self.hclg_path, str(max_batch_size), str(cuda_memory_prop), str(minibatch_size)])
+            subprocess.call(["./kaldi_decode.sh", self.lang, job_folder_name, gpu_id, self.hclg_path, str(max_batch_size), str(cuda_memory_prop), str(minibatch_size), self.resources.model_name])
 
             # 5 - populate the chunk string with the trascription and starting time of each segment (should retrive this information from decodings or lattices)
             print("Create Gentle data structures with decoded text from Kaldi ")

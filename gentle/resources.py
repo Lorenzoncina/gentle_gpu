@@ -14,38 +14,52 @@ class Resources():
              self.proto_langdir = get_resource('exp/en_exp')
              self.nnet_gpu_path = get_resource('exp/en_exp/tdnn_7b_chain_online/')
              self.full_hclg_path = get_resource('exp/en_exp/tdnn_7b_chain_online/graph_pp/HCLG.fst')
+             self.model_name = 'tdnn_7b_chain_online'
          elif lang == "en_gentle":
              self.proto_langdir = get_resource('exp/en_gentle_exp')
              self.nnet_gpu_path = get_resource('exp/en_gentle_exp/tdnn_7b_chain_online/')
              self.full_hclg_path = get_resource('exp/en_gentle_exp/tdnn_7b_chain_online/graph_pp/HCLG.fst')
+             self.model_name = 'tdnn_7b_chain_online'
          elif lang == "fr":
              self.proto_langdir = get_resource('exp/fr_exp')
              self.nnet_gpu_path = get_resource('exp/fr_exp/tdnn_7b_chain_online/')
              self.full_hclg_path = get_resource('exp/fr_exp/tdnn_7b_chain_online/graph_pp/HCLG.fst')
+             self.model_name = 'tdnn_7b_chain_online'
+         elif lang == "fr_lig":
+             self.proto_langdir = get_resource('exp/fr_lig_exp')
+             self.nnet_gpu_path = get_resource('exp/fr_lig_exp/tdnn_7b_chain_online/')
+             self.full_hclg_path = get_resource('exp/fr_lig_exp/tdnn_7b_chain_online/graph_pp/HCLG.fst')
+             self.model_name = 'tdnn_7b_chain_online'
          elif lang =="es":
              self.proto_langdir = get_resource('exp/es_exp')
              self.nnet_gpu_path = get_resource('exp/es_exp/tdnn1a_sp_online/')
              self.full_hclg_path = get_resource('exp/es_exp/tdnn1a_sp_online/graph_pp/HCLG.fst')
+             self.model_name = 'tdnn1a_sp_online'
          elif lang == "ar":
              self.proto_langdir= get_resource('exp/ar_exp')
              self.nnet_gpu_path = get_resource('exp/ar_exp/tdnn1a_sp_online/')
              self.full_hclg_path = get_resource('exp/ar_exp/tdnn1a_sp_online/graph_pp/HCLG.fst')
+             self.model_name = 'tdnn1a_sp_online'
          elif lang == "ru":
              self.proto_langdir= get_resource('exp/ru_exp')
              self.nnet_gpu_path = get_resource('exp/ru_exp/tdnn1a_sp_online/')
              self.full_hclg_path = get_resource('exp/ru_exp/tdnn1a_sp_online/graph_pp/HCLG.fst')
+             self.model_name = 'tdnn1a_sp_online'
          elif lang == "zh":
              self.proto_langdir= get_resource('exp/zh_exp')
              self.nnet_gpu_path = get_resource('exp/zh_exp/tdnn1a_sp_online/')
              self.full_hclg_path = get_resource('exp/zh_exp/tdnn1a_sp_online/graph_pp/HCLG.fst')
+             self.model_name = 'tdnn1a_sp_online'
          elif lang == "pt":
              self.proto_langdir= get_resource('exp/pt_exp')
              self.nnet_gpu_path = get_resource('exp/pt_exp/tdnn1a_sp_online/')
              self.full_hclg_path = get_resource('exp/pt_exp/tdnn1a_sp_online/graph_pp/HCLG.fst')
+             self.model_name = 'tdnn1a_sp_online'
          elif lang == "it":
              self.proto_langdir= get_resource('exp/it_exp')
              self.nnet_gpu_path = get_resource('exp/it_exp/tdnn1a_sp_online/')
              self.full_hclg_path = get_resource('exp/it_exp/tdnn1a_sp_online/graph_pp/HCLG.fst')
+             self.model_name = 'tdnn1a_sp_online'
          else:
              raise RuntimeError("language  is not supported")
 

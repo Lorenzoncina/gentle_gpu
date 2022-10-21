@@ -10,7 +10,8 @@ export decode_cmd="run.pl --mem 2G"
 
 #Create decoding graph and decode audio
 lang=$1_exp
-export dir=../exp/$lang/tdnn_7b_chain_online
+model_name=$8
+export dir=../exp/$lang/$model_name
 export graph_dir=$dir/graph_pp
 
 job_folder_name=$2
@@ -82,7 +83,7 @@ cd $output_dir
 echo "actual folder (should be the decoding folder for this job)"
 echo "Script executed from: ${PWD}"
 
-lattice-1best --lm-scale=12 "ark:zcat lat.JOB.gz |" ark:- | lattice-align-words ../../../../exp/$lang/langdir/phones/word_boundary.int ../../../../exp/$lang/tdnn_7b_chain_online/final.mdl ark:- ark:- | nbest-to-ctm --frame-shift=0.003 ark:- - | ../../../utils/int2sym.pl -f 5 ../../../../exp/$lang/langdir/words.txt > transcript.txt
+lattice-1best --lm-scale=12 "ark:zcat lat.JOB.gz |" ark:- | lattice-align-words ../../../../exp/$lang/langdir/phones/word_boundary.int ../../../../exp/$lang/$model_name/final.mdl ark:- ark:- | nbest-to-ctm --frame-shift=0.03 ark:- - | ../../../utils/int2sym.pl -f 5 ../../../../exp/$lang/langdir/words.txt > transcript.txt
 
 
 echo "end decoding"
