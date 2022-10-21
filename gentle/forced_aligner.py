@@ -29,10 +29,7 @@ class ForcedAligner():
             k.stop()
 
         # Align words
-        
-        #print([word.word for word in words])
-        #print("metasentence")
-        #print(self.ms.get_display_sequence())
+
         words = diff_align.align(words, self.ms, **self.kwargs)
 
         # Perform a second-pass with unaligned words

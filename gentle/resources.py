@@ -27,29 +27,25 @@ class Resources():
              self.nnet_gpu_path = get_resource('exp/es_exp/tdnn1a_sp_online/')
              self.full_hclg_path = get_resource('exp/es_exp/tdnn1a_sp_online/graph_pp/HCLG.fst')
          elif lang == "ar":
-             self.proto_langdir= get_resource('exp/ar_exp/langdir')
+             self.proto_langdir= get_resource('exp/ar_exp')
              self.nnet_gpu_path = get_resource('exp/ar_exp/tdnn1a_sp_online/')
              self.full_hclg_path = get_resource('exp/ar_exp/tdnn1a_sp_online/graph_pp/HCLG.fst')
          elif lang == "ru":
-             self.proto_langdir= get_resource('exp/ru_exp/langdir')
+             self.proto_langdir= get_resource('exp/ru_exp')
              self.nnet_gpu_path = get_resource('exp/ru_exp/tdnn1a_sp_online/')
              self.full_hclg_path = get_resource('exp/ru_exp/tdnn1a_sp_online/graph_pp/HCLG.fst')
          elif lang == "zh":
-             self.proto_langdir= get_resource('exp/zh_exp/langdir')
+             self.proto_langdir= get_resource('exp/zh_exp')
              self.nnet_gpu_path = get_resource('exp/zh_exp/tdnn1a_sp_online/')
              self.full_hclg_path = get_resource('exp/zh_exp/tdnn1a_sp_online/graph_pp/HCLG.fst')
          elif lang == "pt":
-             self.proto_langdir= get_resource('exp/pt_exp/langdir')
+             self.proto_langdir= get_resource('exp/pt_exp')
              self.nnet_gpu_path = get_resource('exp/pt_exp/tdnn1a_sp_online/')
              self.full_hclg_path = get_resource('exp/pt_exp/tdnn1a_sp_online/graph_pp/HCLG.fst')
          elif lang == "it":
-             self.proto_langdir= get_resource('exp/it_exp/langdir')
+             self.proto_langdir= get_resource('exp/it_exp')
              self.nnet_gpu_path = get_resource('exp/it_exp/tdnn1a_sp_online/')
              self.full_hclg_path = get_resource('exp/it_exp/tdnn1a_sp_online/graph_pp/HCLG.fst')
-         elif lang == "en_wipo":
-             self.proto_langdir= get_resource('exp/en_exp/langdir')
-             self.nnet_gpu_path = get_resource('exp/en_exp/tdnn1a_sp_online/')
-             self.full_hclg_path = get_resource('exp/en_exp/tdnn1a_sp_online/graph_pp/HCLG.fst')
          else:
              raise RuntimeError("language  is not supported")
 

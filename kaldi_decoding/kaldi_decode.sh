@@ -26,7 +26,7 @@ model=$dir/$iter.mdl
 acwt=1.0  # Just a default value, used for adaptation and beam-pruning..
 post_decode_acwt=10.0
 cmd=run.pl
-beam=15.0
+beam=30.0
 frames_per_chunk=50
 lattice_beam=8.0
 max_active=7000
@@ -82,7 +82,7 @@ cd $output_dir
 echo "actual folder (should be the decoding folder for this job)"
 echo "Script executed from: ${PWD}"
 
-lattice-1best --lm-scale=12 "ark:zcat lat.JOB.gz |" ark:- | lattice-align-words ../../../../exp/$lang/langdir/phones/word_boundary.int ../../../../exp/$lang/tdnn_7b_chain_online/final.mdl ark:- ark:- | nbest-to-ctm ark:- - | ../../../utils/int2sym.pl -f 5 ../../../../exp/$lang/langdir/words.txt > transcript.txt
+lattice-1best --lm-scale=12 "ark:zcat lat.JOB.gz |" ark:- | lattice-align-words ../../../../exp/$lang/langdir/phones/word_boundary.int ../../../../exp/$lang/tdnn_7b_chain_online/final.mdl ark:- ark:- | nbest-to-ctm --frame-shift=0.003 ark:- - | ../../../utils/int2sym.pl -f 5 ../../../../exp/$lang/langdir/words.txt > transcript.txt
 
 
 echo "end decoding"
