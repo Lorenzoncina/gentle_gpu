@@ -75,13 +75,38 @@ $cmd  $output_dir/log/batched-wav-nnet3-cuda2-batchsize2.log \
     scp:$data/wav.scp \
     $lat_wspecifier
 
-
+#set --frame-shift accprding to the language
+if [ "$lang" == "en_exp" ] #ok
+then
+	frame_shift=0.03
+elif [ $lang == "en_gentle_exp" ] #to set 
+then
+	frame_shift=0.03
+elif [ "$lang" == "fr_exp" ] #ok
+then
+	frame_shift=0.03
+elif [ "$lang" == "es_exp" ] #to set
+then
+	frame_shift=0.03
+elif [ "$lang" == "ar_exp" ] #to set
+then
+	frame_shift=0.03
+elif [ "$lang" == "zh_exp" ] #to set
+then
+	frame_shift=0.03
+elif [ "$lang" == "ru_exp" ]  #to set
+then
+	frame_shift=0.03
+fi
 
 #decode lattices
 #move to the decoding folder for this job
 cd $output_dir
 echo "actual folder (should be the decoding folder for this job)"
 echo "Script executed from: ${PWD}"
+
+
+
 
 lattice-1best --lm-scale=12 "ark:zcat lat.JOB.gz |" ark:- | lattice-align-words ../../../../exp/$lang/langdir/phones/word_boundary.int ../../../../exp/$lang/$model_name/final.mdl ark:- ark:- | nbest-to-ctm --frame-shift=0.03 ark:- - | ../../../utils/int2sym.pl -f 5 ../../../../exp/$lang/langdir/words.txt > transcript.txt
 
