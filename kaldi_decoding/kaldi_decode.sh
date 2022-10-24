@@ -76,25 +76,25 @@ $cmd  $output_dir/log/batched-wav-nnet3-cuda2-batchsize2.log \
     $lat_wspecifier
 
 #set --frame-shift accprding to the language
-if [ "$lang" == "en_exp" ] #ok
+if [ "$lang" == "en_exp" ] 
 then
 	frame_shift=0.03
-elif [ $lang == "en_gentle_exp" ] #to set 
+elif [ $lang == "en_gentle_exp" ] 
 then
 	frame_shift=0.03
-elif [ "$lang" == "fr_exp" ] #ok
+elif [ "$lang" == "fr_exp" ] 
 then
 	frame_shift=0.03
-elif [ "$lang" == "es_exp" ] #to set
+elif [ "$lang" == "es_exp" ] 
 then
 	frame_shift=0.03
-elif [ "$lang" == "ar_exp" ] #to set
+elif [ "$lang" == "ar_exp" ]
 then
 	frame_shift=0.03
-elif [ "$lang" == "zh_exp" ] #to set
+elif [ "$lang" == "zh_exp" ] 
 then
 	frame_shift=0.03
-elif [ "$lang" == "ru_exp" ]  #to set
+elif [ "$lang" == "ru_exp" ]  
 then
 	frame_shift=0.03
 fi
