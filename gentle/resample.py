@@ -23,105 +23,29 @@ def resample_ffmpeg(infile,lang, outfile, offset=None, duration=None):
         duration = []
     else:
         duration = ['-t', str(duration)]
-    
 
-    if lang == 'en':
-        cmd = [
-            FFMPEG,
-            '-loglevel', 'panic',
-            '-y',
-        ] + offset + [
-            '-i', infile,
-        ] + duration + [
-            '-ac', '1', '-ar', '16000',
-            '-acodec', 'pcm_s16le',
-            outfile
-        ]
-        return subprocess.call(cmd)
+    cmd_16k = [FFMPEG,
+                '-loglevel', 'panic',
+                '-y',
+                '-i', infile,
+                '-ac', '1', '-ar', '16000',
+                '-acodec', 'pcm_s16le',
+                outfile]
 
-    if lang == 'fr':
-        cmd = [
-            FFMPEG,
-            '-loglevel', 'panic',
-            '-y',
-        ] + offset + [
-            '-i', infile,
-        ] + duration + [
-            '-ac', '1', '-ar', '16000',
-            '-acodec', 'pcm_s16le',
-            outfile
-        ]
-        return subprocess.call(cmd)
+    cmd_8k = [FFMPEG,
+                '-loglevel', 'panic',
+                '-y',
+                '-i', infile,
+                '-ac', '1', '-ar', '8000',
+                '-acodec', 'pcm_s16le',
+                outfile]
 
-    if lang == 'es':
-        cmd = [
-            FFMPEG,
-            '-loglevel', 'panic',
-            '-y',
-        ] + offset + [
-            '-i', infile,
-        ] + duration + [
-            '-ac', '1', '-ar', '16000',
-            '-acodec', 'pcm_s16le',
-            outfile
-        ]
-        return subprocess.call(cmd)
 
-    if lang == 'ar':
-        cmd = [
-            FFMPEG,
-            '-loglevel', 'panic',
-            '-y',
-        ] + offset + [
-            '-i', infile,
-        ] + duration + [
-            '-ac', '1', '-ar', '16000',
-            '-acodec', 'pcm_s16le',
-            outfile
-        ]
-        return subprocess.call(cmd)
-
-    if lang == 'zh':
-        cmd = [
-            FFMPEG,
-            '-loglevel', 'panic',
-            '-y',
-        ] + offset + [
-            '-i', infile,
-        ] + duration + [
-            '-ac', '1', '-ar', '16000',
-            '-acodec', 'pcm_s16le',
-            outfile
-        ]
-        return subprocess.call(cmd)
-
-    if lang == 'ru':
-        cmd = [
-            FFMPEG,
-            '-loglevel', 'panic',
-            '-y',
-        ] + offset + [
-            '-i', infile,
-        ] + duration + [
-            '-ac', '1', '-ar', '16000',
-            '-acodec', 'pcm_s16le',
-            outfile
-        ]
-        return subprocess.call(cmd)
+    if lang in {'en', 'fr', 'fr_lig', 'es', 'ar', 'zh', 'ru'}:
+        return subprocess.call(cmd_16k)
 
     if lang == 'en_gentle':
-        cmd = [
-            FFMPEG,
-            '-loglevel', 'panic',
-            '-y',
-        ] + offset + [
-            '-i', infile,
-        ] + duration + [
-            '-ac', '1', '-ar', '8000',
-            '-acodec', 'pcm_s16le',
-            outfile
-        ]
-        return subprocess.call(cmd)
+        return subprocess.call(cmd_8k)
 
 
 def resample_sox(infile, outfile, offset=None, duration=None):
