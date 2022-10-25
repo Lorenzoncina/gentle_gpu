@@ -12,9 +12,9 @@ class Resources():
 
          if lang == "en":
              self.proto_langdir = get_resource('exp/en_exp')
-             self.nnet_gpu_path = get_resource('exp/en_exp/tdnn_7b_chain_online/')
-             self.full_hclg_path = get_resource('exp/en_exp/tdnn_7b_chain_online/graph_pp/HCLG.fst')
-             self.model_name = 'tdnn_7b_chain_online'
+             self.nnet_gpu_path = get_resource('exp/en_exp/tdnn1a_sp_online/')
+             self.full_hclg_path = get_resource('exp/en_exp/tdnn1a_sp_online/graph_pp/HCLG.fst')
+             self.model_name = 'tdnn1a_sp_online'
          elif lang == "en_gentle":
              self.proto_langdir = get_resource('exp/en_gentle_exp')
              self.nnet_gpu_path = get_resource('exp/en_gentle_exp/tdnn_7b_chain_online/')
