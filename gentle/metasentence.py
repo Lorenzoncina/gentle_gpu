@@ -27,8 +27,9 @@ class MetaSentence:
     Kaldi's benefit, and the other in human-legible form.
     """
 
-    def __init__(self, sentence, vocab):
+    def __init__(self, sentence, vocab, lang):
         self.raw_sentence = sentence
+        self.lang = lang
 
         if type(sentence) == bytes:
             self.raw_sentence = sentence.decode('utf-8')
@@ -38,7 +39,12 @@ class MetaSentence:
 
     def _tokenize(self):
         self._seq = []
-        for m in re.finditer(r'(\w|\’\w|\'\w)+', self.raw_sentence, re.UNICODE):
+        if self.lang == "zh":
+            tokenization_pattern = r'\S'
+        else:
+            tokenization_pattern = r'(\w|\'\w|\'\w)+'
+        #for m in re.finditer(r'(\w|\’\w|\'\w)+', self.raw_sentence, re.UNICODE):
+        for m in re.finditer(tokenization_pattern, self.raw_sentence, re.UNICODE):
             start, end = m.span()
             word = m.group()
             token = kaldi_normalize(word, self.vocab)

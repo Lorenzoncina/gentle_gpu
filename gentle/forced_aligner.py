@@ -15,7 +15,7 @@ class ForcedAligner():
         self.device = device
         self.resources = resources
         self.lang=kwargs['lang']
-        self.ms = metasentence.MetaSentence(transcript, resources.vocab)
+        self.ms = metasentence.MetaSentence(transcript, resources.vocab, self.lang)
         ks = self.ms.get_kaldi_sequence()
         gen_hclg_filename = language_model.make_bigram_language_model(ks, resources.proto_langdir,resources.nnet_gpu_path, **kwargs)
         #kaldi queue is useless for gpu decoder
