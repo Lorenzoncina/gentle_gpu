@@ -11,7 +11,7 @@ from gentle import transcription
 from multiprocessing.pool import ThreadPool as Pool
 
 class MultiThreadedTranscriber:
-    def __init__(self, kaldi_queue, hclg_path, resources, chunk_len=20, overlap_t=2, nthreads=4, lang='lang'):
+    def __init__(self, hclg_path, resources, chunk_len=20, overlap_t=2, nthreads=4, lang='lang', kaldi_queue =None):
         self.hclg_path = hclg_path
         self.resources=resources
         self.chunk_len = chunk_len
@@ -26,11 +26,11 @@ class MultiThreadedTranscriber:
         n_chunks = int(math.ceil(duration / float(self.chunk_len - self.overlap_t)))
 
         chunks = []
-        
+
         """
         This if else statement switches between cpu and gpu decoder.
         ## TODO: Refactor this switch with a proper pattern
-        """ 
+        """
         if device ==  'gpu' :
             #GPU Decoder
 
@@ -70,7 +70,7 @@ class MultiThreadedTranscriber:
                 pass
 
             os.chdir('data')
-            
+
             try:
                 os.mkdir(job_folder_name)
             except FileExistsError:
@@ -80,7 +80,7 @@ class MultiThreadedTranscriber:
             # 2 - create wav.scp file which has one single entry
             wav_scp_file = os.path.join(job_folder_name, 'wav.scp')
             wav_scp_path = os.path.join(os.getcwd(), wav_scp_file)
-            wav_scp =  open(wav_scp_path, 'w') 
+            wav_scp =  open(wav_scp_path, 'w')
             audio_file_path = os.path.join(gentle_working_dir,wavfile_path)
             #line = "utt1 " + " ffmpeg -vn -i "  + audio_file_path + " -ac 1 -ar 16000 -f wav -|"
             #wav_scp.write(line)
@@ -93,7 +93,7 @@ class MultiThreadedTranscriber:
                 wav_obj = wave.open(wavfile, 'rb')
                 #start time of this audio chunk
                 start_t = idx * (self.chunk_len - self.overlap_t)
-            
+
                 duration = int(self.chunk_len * wav_obj.getframerate())
                 duration_seconds = duration / wav_obj.getframerate()
 
@@ -125,7 +125,7 @@ class MultiThreadedTranscriber:
             path = os.path.join( os.getcwd(), exp_folder)
             decoding_file = open(path, 'r')
             words_of_each_segment = decoding_file.readlines()
-           
+
 
             # 6 - sort all the segments of the trascription in the proper order.
             def extract_starting_time(line):
@@ -272,4 +272,3 @@ if __name__=='__main__':
         words, duration = trans.transcribe(filename)
 
     open(sys.argv[2], 'w').write(transcription.Transcription(words=words).to_json())
-

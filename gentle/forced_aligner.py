@@ -8,25 +8,31 @@ from gentle.transcription import Transcription
 
 class ForcedAligner():
 
-    def __init__(self, resources, transcript, nthreads=4, **kwargs):
+    def __init__(self, resources, transcript, device, nthreads=4, **kwargs):
         self.kwargs = kwargs
         self.nthreads = nthreads
         self.transcript = transcript
+        self.device = device
         self.resources = resources
         self.lang=kwargs['lang']
         self.ms = metasentence.MetaSentence(transcript, resources.vocab)
         ks = self.ms.get_kaldi_sequence()
         gen_hclg_filename = language_model.make_bigram_language_model(ks, resources.proto_langdir,resources.nnet_gpu_path, **kwargs)
-        self.queue = kaldi_queue.build(resources, hclg_path=gen_hclg_filename, nthreads=nthreads)
-        self.mtt = MultiThreadedTranscriber(self.queue, resources = self.resources, nthreads=nthreads, lang=self.lang, hclg_path=gen_hclg_filename)
+        #kaldi queue is useless for gpu decoder
+        if self.device == 'cpu':
+            self.queue = kaldi_queue.build(resources, hclg_path=gen_hclg_filename, nthreads=nthreads)
+        else:
+            self.queue = None
+        self.mtt = MultiThreadedTranscriber(hclg_path=gen_hclg_filename, resources = self.resources, nthreads=nthreads, lang=self.lang, kaldi_queue=self.queue)
 
-    def transcribe(self, wavfile, wavfile_path, device, gpu_id, max_batch_size, cuda_memory_prop, minibatch_size, progress_cb=None, logging=None):
-        words, duration = self.mtt.transcribe(wavfile, wavfile_path, gpu_id, max_batch_size, cuda_memory_prop, minibatch_size, device,  progress_cb=progress_cb)
-        
-        # Clear queue (would this be gc'ed?)
-        for i in range(self.nthreads):
-            k = self.queue.get()
-            k.stop()
+    def transcribe(self, wavfile, wavfile_path, gpu_id, max_batch_size, cuda_memory_prop, minibatch_size, progress_cb=None, logging=None):
+        words, duration = self.mtt.transcribe(wavfile, wavfile_path, gpu_id, max_batch_size, cuda_memory_prop, minibatch_size, self.device,  progress_cb=progress_cb)
+
+        # Clear queue (only for cpu decoding)
+        if self.device == "cpu":
+            for i in range(self.nthreads):
+                k = self.queue.get()
+                k.stop()
 
         # Align words
 
