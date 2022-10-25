@@ -44,7 +44,7 @@ mkdir -p $output_dir/log
 ivector_conf_path="conf/"$lang"_ivectors_conf/ivector.conf"
 #select the proper gpu
 export CUDA_VISIBLE_DEVICE=$3
-  
+
 $cmd  $output_dir/log/batched-wav-nnet3-cuda2-batchsize2.log \
     batched-wav-nnet3-cuda \
     --cuda-use-tensor-cores=false \
@@ -65,7 +65,7 @@ $cmd  $output_dir/log/batched-wav-nnet3-cuda2-batchsize2.log \
     --minibatch-size=$7 \
     --cuda-use-tensor-cores=true \
     --cuda-memory-proportion=$6  \
-    --num-channels=128 \
+    --num-channels=-1 \
     --beam=$beam \
     --lattice-beam=$lattice_beam \
     --max-active=$max_active \
@@ -76,25 +76,25 @@ $cmd  $output_dir/log/batched-wav-nnet3-cuda2-batchsize2.log \
     $lat_wspecifier
 
 #set --frame-shift accprding to the language
-if [ "$lang" == "en_exp" ] 
+if [ "$lang" == "en_exp" ]
 then
 	frame_shift=0.03
-elif [ $lang == "en_gentle_exp" ] 
+elif [ $lang == "en_gentle_exp" ]
 then
 	frame_shift=0.03
-elif [ "$lang" == "fr_exp" ] 
+elif [ "$lang" == "fr_exp" ]
 then
 	frame_shift=0.03
-elif [ "$lang" == "es_exp" ] 
+elif [ "$lang" == "es_exp" ]
 then
 	frame_shift=0.03
 elif [ "$lang" == "ar_exp" ]
 then
 	frame_shift=0.03
-elif [ "$lang" == "zh_exp" ] 
+elif [ "$lang" == "zh_exp" ]
 then
 	frame_shift=0.03
-elif [ "$lang" == "ru_exp" ]  
+elif [ "$lang" == "ru_exp" ]
 then
 	frame_shift=0.03
 fi
@@ -112,4 +112,3 @@ lattice-1best --lm-scale=12 "ark:zcat lat.JOB.gz |" ark:- | lattice-align-words 
 
 
 echo "end decoding"
-
