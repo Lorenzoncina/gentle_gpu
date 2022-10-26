@@ -35,7 +35,6 @@ class ForcedAligner():
                 k.stop()
 
         # Align words
-
         words = diff_align.align(words, self.ms, **self.kwargs)
 
         # Perform a second-pass with unaligned words

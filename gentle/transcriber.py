@@ -161,7 +161,9 @@ class MultiThreadedTranscriber:
             #Refactor the information into the proper data structure expected by Gentle
             for idx, segment in enumerate(all_segments):
                 ret = []
-                start_t_seg = idx * (self.chunk_len - self.overlap_t)
+
+                start_t_seg =  extract_starting_time(all_segments[idx][0])
+            
                 for word in segment:
                     start_t = float(word.split(" ")[2])
                     word_duration = float(word.split(" ")[3])
@@ -173,6 +175,7 @@ class MultiThreadedTranscriber:
                         "phones": []
                     }
                     ret.append(wd)
+
                 chunks.append({"start": start_t_seg , "words": ret})
         else:
             #CPU decoder

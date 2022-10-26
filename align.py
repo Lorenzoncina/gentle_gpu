@@ -73,7 +73,10 @@ with open(args.txtfile, encoding="utf-8") as fh:
     transcript = fh.read()
 
 resources = gentle.Resources(lang)
-logging.info("converting audio to 8K sampled wav")
+if lang == 'en_gentle':
+    logging.info("converting audio to 8K sampled wav")
+else:
+    logging.info("converting audio to 16K sampled wav")
 
 with gentle.resampled(args.audiofile, lang) as wavfile:
     logging.info("starting alignment")
