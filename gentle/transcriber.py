@@ -48,24 +48,24 @@ class MultiThreadedTranscriber:
             conf_path_name = lang_folder_name + "_ivectors_conf"
             try:
                 os.mkdir(conf_path_name)
+                os.chdir(conf_path_name)
+                ivector_file_name = 'ivector.conf'
+                with open(ivector_file_name, 'w') as f:
+                    cmvn_config = '--cmvn_config=conf/online_cmvn.conf\n'
+                    f.write(cmvn_config)
+                    f.write('--ivector-period=10\n')
+                    splice_config='--splice-config=conf/splice.conf\n'
+                    f.write(splice_config)
+                    lang = self.lang+'_exp'
+                    extractor_dir = os.path.join('../exp',lang, self.resources.model_name ,'ivector_extractor')
+                    text_list = ['--lda-matrix='+extractor_dir+'//final.mat\n','--global-cmvn-stats='+extractor_dir+'//global_cmvn.stats\n', '--diag-ubm='+extractor_dir+'//final.dubm\n','--ivector-extractor='+extractor_dir+'//final.ie\n', '--num-gselect=5\n', '--min-post=0.025\n', '--posterior-scale=0.1\n', '--max-remembered-frames=1000\n','--max-count=0\n' ]
+                    f.writelines(text_list)
+                    os.chdir('../../')
             except FileExistsError:
+                os.chdir('../')
                 pass
 
-            ivector_file_name = 'ivector.conf'
-            os.chdir(conf_path_name)
-            with open(ivector_file_name, 'w') as f:
-                cmvn_config = '--cmvn_config=conf/online_cmvn.conf\n'
-                f.write(cmvn_config)
-                f.write('--ivector-period=10\n')
-                splice_config='--splice-config=conf/splice.conf\n'
-                f.write(splice_config)
-                lang = self.lang+'_exp'
-                extractor_dir = os.path.join('../exp',lang, self.resources.model_name ,'ivector_extractor')
-                text_list = ['--lda-matrix='+extractor_dir+'//final.mat\n','--global-cmvn-stats='+extractor_dir+'//global_cmvn.stats\n', '--diag-ubm='+extractor_dir+'//final.dubm\n','--ivector-extractor='+extractor_dir+'//final.ie\n', '--num-gselect=5\n', '--min-post=0.025\n', '--posterior-scale=0.1\n', '--max-remembered-frames=1000\n','--max-count=0\n' ]
-                f.writelines(text_list)
-
             #create the data folder(if it doesn't exit from a previous job) and a new folder for this job where all kaldi files are then generated
-            os.chdir('../../')
             try:
                 os.mkdir('data')
             except FileExistsError:
