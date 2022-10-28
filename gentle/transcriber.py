@@ -4,6 +4,7 @@ import wave
 import os
 import subprocess
 from  itertools import repeat
+from .util.paths import get_datadir
 import uuid
 
 from gentle import transcription
@@ -42,7 +43,8 @@ class MultiThreadedTranscriber:
             lang_folder_name =  self.lang + "_exp"
 
             # 1 create ivector.conf which is the configuration needed to compute ivector in the gpu decoder.
-            os.chdir('kaldi_decoding/conf')
+            conf_dir =get_datadir('kaldi_decoding/conf')
+            os.chdir(conf_dir)
             conf_path_name = lang_folder_name + "_ivectors_conf"
             try:
                 os.mkdir(conf_path_name)
@@ -163,7 +165,7 @@ class MultiThreadedTranscriber:
                 ret = []
 
                 start_t_seg =  extract_starting_time(all_segments[idx][0])
-            
+
                 for word in segment:
                     start_t = float(word.split(" ")[2])
                     word_duration = float(word.split(" ")[3])
