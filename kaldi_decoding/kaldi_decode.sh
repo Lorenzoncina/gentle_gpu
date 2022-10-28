@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -exv
+
 #This script perform kaldi decoding using  gpu cuda decoder (batched-wav-nnet3-cuda) to improve
 #s2t decoding performances
 source ./path.sh
