@@ -77,8 +77,8 @@ else:
     output_folder = os.getcwd()
     if len(output_folder_list) > 1:
         for i in range(len(output_folder_list) -1): output_folder = os.path.join(output_folder, output_folder_list[i] )
-        #full path to output json.txt
-        output_file_path = os.path.join(output_folder, output_folder_list[-1])
+    #full path to output json.txt
+    output_file_path = os.path.join(output_folder, output_folder_list[-1])
 
 disfluencies = set(['uh', 'um'])
 
