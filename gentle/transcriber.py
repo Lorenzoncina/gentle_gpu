@@ -21,7 +21,7 @@ class MultiThreadedTranscriber:
         self.lang=lang
         self.kaldi_queue = kaldi_queue
 
-    def transcribe(self, wavfile, wavfile_path, gpu_id, max_batch_size, cuda_memory_prop, minibatch_size,  device, progress_cb=None):
+    def transcribe(self, wavfile, wavfile_path, gpu_id, max_batch_size, cuda_memory_prop, minibatch_size,  device, output_folder, progress_cb=None):
         wav_obj = wave.open(wavfile, 'rb')
         duration = wav_obj.getnframes() / float(wav_obj.getframerate())
         n_chunks = int(math.ceil(duration / float(self.chunk_len - self.overlap_t)))
@@ -36,7 +36,7 @@ class MultiThreadedTranscriber:
             #GPU Decoder
 
             # 0 - create a folder in kaldi_decoding  for this decoding job
-            gentle_working_dir = os.getcwd()
+            actual_working_dir = os.getcwd()
             audio_file_path_list = wavfile_path.split('/')
             audio_file_name = audio_file_path_list[len(audio_file_path_list)-1]
             job_folder_name = str(uuid.uuid4())+"_"+ audio_file_name.split('.')[0]+"_decoding_job"
@@ -65,27 +65,19 @@ class MultiThreadedTranscriber:
                 os.chdir('../')
                 pass
 
-            #create the data folder(if it doesn't exit from a previous job) and a new folder for this job where all kaldi files are then generated
+            #create the job folder in the provided path. /tmp folder if the user doesn't specify any output.txt file
             try:
-                os.mkdir('data')
-            except FileExistsError:
-                pass
-
-            os.chdir('data')
-
-            try:
-                os.mkdir(job_folder_name)
+                os.mkdir(os.path.join(output_folder,job_folder_name))
             except FileExistsError:
                 pass
 
 
             # 2 - create wav.scp file which has one single entry
             wav_scp_file = os.path.join(job_folder_name, 'wav.scp')
-            wav_scp_path = os.path.join(os.getcwd(), wav_scp_file)
+            wav_scp_path = os.path.join(output_folder, wav_scp_file)
             wav_scp =  open(wav_scp_path, 'w')
-            audio_file_path = os.path.join(gentle_working_dir,wavfile_path)
-            #line = "utt1 " + " ffmpeg -vn -i "  + audio_file_path + " -ac 1 -ar 16000 -f wav -|"
-            #wav_scp.write(line)
+            audio_file_path = os.path.join(actual_working_dir,wavfile_path)
+
             """
             This function fills the wav.scp file. It needs to have a single line for each segment. Each of these segments will be decoded
             separatly by the cuda decoder.
@@ -116,14 +108,14 @@ class MultiThreadedTranscriber:
 
 
             # 4 - launch external bash script for kaldi decoding on gpu
-            os.chdir('..')
+            #os.chdir('..')
             print("Launching kaldi to decode the input audio file")
-            subprocess.call(["./kaldi_decode.sh", self.lang, job_folder_name, gpu_id, self.hclg_path, str(max_batch_size), str(cuda_memory_prop), str(minibatch_size), self.resources.model_name])
+            subprocess.call(["./kaldi_decode.sh", self.lang, job_folder_name, gpu_id, self.hclg_path, str(max_batch_size), str(cuda_memory_prop), str(minibatch_size), self.resources.model_name, output_folder ])
 
             # 5 - populate the chunk string with the trascription and starting time of each segment (should retrive this information from decodings or lattices)
             print("Create Gentle data structures with decoded text from Kaldi ")
             language_folder= self.lang+"_exp"
-            exp_folder = os.path.join("data", job_folder_name,"decoding", "transcript.txt")
+            exp_folder = os.path.join(output_folder, job_folder_name, "transcript.txt")
             path = os.path.join( os.getcwd(), exp_folder)
             decoding_file = open(path, 'r')
             words_of_each_segment = decoding_file.readlines()

@@ -25,8 +25,8 @@ class ForcedAligner():
             self.queue = None
         self.mtt = MultiThreadedTranscriber(hclg_path=gen_hclg_filename, resources = self.resources, nthreads=nthreads, lang=self.lang, kaldi_queue=self.queue)
 
-    def transcribe(self, wavfile, wavfile_path, gpu_id, max_batch_size, cuda_memory_prop, minibatch_size, progress_cb=None, logging=None):
-        words, duration = self.mtt.transcribe(wavfile, wavfile_path, gpu_id, max_batch_size, cuda_memory_prop, minibatch_size, self.device,  progress_cb=progress_cb)
+    def transcribe(self, wavfile, wavfile_path, gpu_id, max_batch_size, cuda_memory_prop, minibatch_size, output_folder, progress_cb=None, logging=None):
+        words, duration = self.mtt.transcribe(wavfile, wavfile_path, gpu_id, max_batch_size, cuda_memory_prop, minibatch_size, self.device, output_folder,  progress_cb=progress_cb)
 
         # Clear queue (only for cpu decoding)
         if self.device == "cpu":

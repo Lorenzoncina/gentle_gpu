@@ -16,13 +16,13 @@ model_name=$8
 export dir=../exp/$lang/$model_name
 export graph_dir=$dir/graph_pp
 
+gentle_dir=${PWD}/..
 job_folder_name=$2
-#output_dir=decoding_jobs/$lang/$2
-output_dir=data/$2/decoding
+output_folder=$9
+output_dir=$output_folder/$job_folder_name
 
 #GPU decoding with cuda decoder
 graphdir=$graph_dir
-data=data/$2/
 iter=final
 model=$dir/$iter.mdl
 
@@ -46,6 +46,7 @@ mkdir -p $output_dir/log
 ivector_conf_path="conf/"$lang"_ivectors_conf/ivector.conf"
 #select the proper gpu
 export CUDA_VISIBLE_DEVICE=$3
+
 
 $cmd  $output_dir/log/batched-wav-nnet3-cuda2-batchsize2.log \
     batched-wav-nnet3-cuda \
@@ -74,8 +75,9 @@ $cmd  $output_dir/log/batched-wav-nnet3-cuda2-batchsize2.log \
     --word-symbol-table=$graphdir/words.txt \
     $model \
     $4 \
-    scp:$data/wav.scp \
+    scp:$output_dir/wav.scp \
     $lat_wspecifier
+
 
 #set --frame-shift accprding to the language
 if [ "$lang" == "en_exp" ]
@@ -107,10 +109,6 @@ cd $output_dir
 echo "actual folder (should be the decoding folder for this job)"
 echo "Script executed from: ${PWD}"
 
-
-
-
-lattice-1best --lm-scale=12 "ark:zcat lat.JOB.gz |" ark:- | lattice-align-words ../../../../exp/$lang/langdir/phones/word_boundary.int ../../../../exp/$lang/$model_name/final.mdl ark:- ark:- | nbest-to-ctm --frame-shift=0.03 ark:- - | ../../../utils/int2sym.pl -f 5 ../../../../exp/$lang/langdir/words.txt > transcript.txt
-
+lattice-1best --lm-scale=12 "ark:zcat lat.JOB.gz |" ark:- | lattice-align-words $gentle_dir/exp/$lang/langdir/phones/word_boundary.int $gentle_dir/exp/$lang/$model_name/final.mdl ark:- ark:- | nbest-to-ctm --frame-shift=0.03 ark:- - | $gentle_dir/kaldi_decoding/utils/int2sym.pl -f 5 $gentle_dir/exp/$lang/langdir/words.txt > transcript.txt
 
 echo "end decoding"

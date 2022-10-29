@@ -5,6 +5,7 @@ import logging
 import multiprocessing
 import os
 import sys
+from gentle.util.paths import get_datadir
 
 import gentle
 
@@ -64,6 +65,21 @@ decoder_type = args.device
 max_batch_size = args.max_batch_size
 cuda_memory_prop = args.cuda_memory_proportion
 minibatch_size = args.minibatch_size
+
+#extract the path to the folder where decoding logs will be generet
+print("output file")
+print(args.output)
+if args.output == None :
+    output_folder = "/tmp"
+else:
+    output_file = args.output
+    output_folder_list = output_file.split("/")
+    output_folder = os.getcwd()
+    if len(output_folder_list) > 1:
+        for i in range(len(output_folder_list) -1): output_folder = os.path.join(output_folder, output_folder_list[i] )
+        #full path to output json.txt
+        output_file_path = os.path.join(output_folder, output_folder_list[-1])
+
 disfluencies = set(['uh', 'um'])
 
 def on_progress(p):
@@ -83,9 +99,9 @@ else:
 with gentle.resampled(args.audiofile, lang) as wavfile:
     logging.info("starting alignment")
     aligner = gentle.ForcedAligner(resources, transcript, device = decoder_type, nthreads=args.nthreads, disfluency=args.disfluency, conservative=args.conservative, disfluencies=disfluencies, lang=lang)
-    result = aligner.transcribe(wavfile, args.audiofile, gpu_id=gpu_id, max_batch_size=max_batch_size, cuda_memory_prop=cuda_memory_prop, minibatch_size=minibatch_size,progress_cb=on_progress, logging=logging)
+    result = aligner.transcribe(wavfile, args.audiofile, gpu_id=gpu_id, max_batch_size=max_batch_size, cuda_memory_prop=cuda_memory_prop, minibatch_size=minibatch_size, output_folder = output_folder, progress_cb=on_progress, logging=logging)
 
-fh = open(args.output, 'w', encoding="utf-8") if args.output else sys.stdout
+fh = open(output_file_path, 'w', encoding="utf-8") if args.output else sys.stdout
 fh.write(result.to_json(indent=2))
 if args.output:
     logging.info("output written to %s" % (args.output))
