@@ -39,7 +39,7 @@ class MultiThreadedTranscriber:
             actual_working_dir = os.getcwd()
             audio_file_path_list = wavfile_path.split('/')
             audio_file_name = audio_file_path_list[len(audio_file_path_list)-1]
-            job_folder_name = str(uuid.uuid4())+"_"+ audio_file_name.split('.')[0]+"_decoding_job"
+            job_folder_name = audio_file_name.split('.')[0] + "_Gentle_GPU_JOB_" + str(uuid.uuid4())
             lang_folder_name =  self.lang + "_exp"
 
             # 1 create ivector.conf which is the configuration needed to compute ivector in the gpu decoder.
