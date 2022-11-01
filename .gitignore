@@ -18,5 +18,4 @@ ext/m3
 *.json
 ext/kaldi/
 kaldi_decoding/transcript.txt
-kaldi_decoding/conf/*_conf
 kaldi_decoding/decoding_jobs/
