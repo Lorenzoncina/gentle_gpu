@@ -36,7 +36,6 @@ class MultiThreadedTranscriber:
             #GPU Decoder
 
             # 0 - create a folder in kaldi_decoding  for this decoding job
-            actual_working_dir = os.getcwd()
             audio_file_path_list = wavfile_path.split('/')
             audio_file_name = audio_file_path_list[len(audio_file_path_list)-1]
             job_folder_name = audio_file_name.split('.')[0] + "_Gentle_GPU_JOB_" + str(uuid.uuid4())
@@ -55,7 +54,8 @@ class MultiThreadedTranscriber:
             wav_scp_file = os.path.join(job_folder_name, 'wav.scp')
             wav_scp_path = os.path.join(output_folder, wav_scp_file)
             wav_scp =  open(wav_scp_path, 'w')
-            audio_file_path = os.path.join(actual_working_dir,wavfile_path)
+
+
 
             """
             This function fills the wav.scp file. It needs to have a single line for each segment. Each of these segments will be decoded
@@ -73,7 +73,7 @@ class MultiThreadedTranscriber:
                 # add the chunk informations in a new line in the wav.scp file
                 recording_id = "utt1"
                 utterance_id = recording_id + "_"  + str(start_t) + "_" +  str(duration_seconds)
-                line = utterance_id + " ffmpeg -vn -ss "+ str(start_t)  +" -t "+ str(duration_seconds)  + " -i "  + audio_file_path + " -ac 1 -ar 16000 -f wav -| \n"
+                line = utterance_id + " ffmpeg -vn -ss "+ str(start_t)  +" -t "+ str(duration_seconds)  + " -i "  + wavfile_path + " -ac 1 -ar 16000 -f wav -| \n"
                 wav_scp.write(line)
 
             pool = Pool(min(n_chunks, 1))
@@ -94,9 +94,9 @@ class MultiThreadedTranscriber:
             # 5 - populate the chunk string with the trascription and starting time of each segment (should retrive this information from decodings or lattices)
             print("Create Gentle data structures with decoded text from Kaldi ")
             language_folder= self.lang+"_exp"
-            exp_folder = os.path.join(output_folder, job_folder_name, "transcript.txt")
-            path = os.path.join( os.getcwd(), exp_folder)
-            decoding_file = open(path, 'r')
+            trascription_file = os.path.join(output_folder, job_folder_name, "transcript.txt")
+
+            decoding_file = open(trascription_file, 'r')
             words_of_each_segment = decoding_file.readlines()
 
 

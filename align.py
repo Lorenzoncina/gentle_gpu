@@ -70,6 +70,9 @@ minibatch_size = args.minibatch_size
 output_folder = os.path.dirname(args.output)
 output_file_path = os.path.abspath(args.output)
 
+#absolute path of the audio file
+audio_file_path =  os.path.abspath(args.audiofile)
+
 disfluencies = set(['uh', 'um'])
 
 def on_progress(p):
@@ -89,7 +92,7 @@ else:
 with gentle.resampled(args.audiofile, lang) as wavfile:
     logging.info("starting alignment")
     aligner = gentle.ForcedAligner(resources, transcript, device = decoder_type, nthreads=args.nthreads, disfluency=args.disfluency, conservative=args.conservative, disfluencies=disfluencies, lang=lang)
-    result = aligner.transcribe(wavfile, args.audiofile, gpu_id=gpu_id, max_batch_size=max_batch_size, cuda_memory_prop=cuda_memory_prop, minibatch_size=minibatch_size, output_folder = output_folder, progress_cb=on_progress, logging=logging)
+    result = aligner.transcribe(wavfile, audio_file_path, gpu_id=gpu_id, max_batch_size=max_batch_size, cuda_memory_prop=cuda_memory_prop, minibatch_size=minibatch_size, output_folder = output_folder, progress_cb=on_progress, logging=logging)
 
 fh = open(output_file_path, 'w', encoding="utf-8") if args.output else sys.stdout
 fh.write(result.to_json(indent=2))
