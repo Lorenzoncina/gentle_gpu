@@ -67,7 +67,7 @@ cuda_memory_prop = args.cuda_memory_proportion
 minibatch_size = args.minibatch_size
 
 #extract the path to the folder where decoding logs will be generet
-output_folder = os.path.dirname(args.output)
+output_folder = os.path.dirname(os.path.abspath(args.output))
 output_file_path = os.path.abspath(args.output)
 
 #absolute path of the audio file
