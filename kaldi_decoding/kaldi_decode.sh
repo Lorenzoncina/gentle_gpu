@@ -45,7 +45,7 @@ mkdir -p $output_dir/log
 
 ivector_conf_path="conf/"$lang"_ivectors_conf/ivector.conf"
 #select the proper gpu
-export CUDA_VISIBLE_DEVICE=$3
+export CUDA_VISIBLE_DEVICES=$3
 
 
 $cmd  $output_dir/log/batched-wav-nnet3-cuda2-batchsize2.log \
