@@ -9,4 +9,5 @@ cd ../src
 # make clean (sometimes helpful after upgrading upstream?)
 ./configure --static --static-math=yes --static-fst=yes --use-cuda=yes --cudatk-dir=/usr/local/cuda-11 --openblas-root=../tools/OpenBLAS/install
 make depend
+make
 cd ../../
