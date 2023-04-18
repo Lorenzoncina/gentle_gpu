@@ -54,7 +54,7 @@ for (my $x = 1; $x <= 2; $x++) { # This for-loop is to
           $max_jobs_run = $new_constraint;
         }
       }
-      
+
       if (! ($max_jobs_run > 0)) {
         die "run.pl: invalid option --max-jobs-run $max_jobs_run";
       }
@@ -159,17 +159,17 @@ if ($max_jobs_run == -1) { # If --max-jobs-run option not set,
 }
 
 sub pick_or_exit {
-  # pick_or_exit ( $logfile ) 
+  # pick_or_exit ( $logfile )
   # Invoked before each job is started helps to run jobs selectively.
   #
-  # Given the name of the output logfile decides whether the job must be 
+  # Given the name of the output logfile decides whether the job must be
   # executed (by returning from the subroutine) or not (by terminating the
   # process calling exit)
-  # 
+  #
   # PRE: $job_pick is a global variable set by command line switch --pick
   #      and indicates which class of jobs must be executed.
   #
-  # 1) If a failed job is not executed the process exit code will indicate 
+  # 1) If a failed job is not executed the process exit code will indicate
   #    failure, just as if the task was just executed  and failed.
   #
   # 2) If a task is incomplete it will be executed. Incomplete may be either
@@ -283,8 +283,16 @@ for ($jobid = $jobstart; $jobid <= $jobend; $jobid++) {
     open(B, "|bash") || die "run.pl: Error opening shell command";
     print B "( " . $cmd . ") 2>>$logfile >> $logfile";
     close(B);                   # If there was an error, exit status is in $?
-    $ret = $?;
 
+    #catch  error
+    open (Log, "<", $logfile) || die "run.pl: no logfile $logfile:$!";
+    while (my $line=<Log>) {
+       if($line =~ /^ERROR /) {die "run.pl: batched-wav-nnet3-cuda failed with following error: $line";}
+    }
+    close Log;
+
+    print "\n";
+    $ret = $?;
     $lowbits = $ret & 127;
     $highbits = $ret >> 8;
     if ($lowbits != 0) { $return_str = "code $highbits; signal $lowbits" }
