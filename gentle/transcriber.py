@@ -89,10 +89,11 @@ class MultiThreadedTranscriber:
 
             # 4 - launch external bash script for kaldi decoding on gpu
             print("Launching kaldi to decode the input audio file")
-            kaldi_process = subprocess.run(
-                                ["./kaldi_decode.sh", self.lang, job_folder_name, gpu_id, self.hclg_path, str(max_batch_size), str(cuda_memory_prop), str(minibatch_size), self.resources.model_name, output_folder ],
-                                check=True
-                            )
+            kaldi_process = subprocess.check_output(
+                                ["./kaldi_decode.sh", self.lang, job_folder_name, gpu_id, self.hclg_path, str(max_batch_size), str(cuda_memory_prop), str(minibatch_size), self.resources.model_name, output_folder ])
+            #kaldi_process = subprocess.run(
+            #                    ["./kaldi_decode.sh", self.lang, job_folder_name, gpu_id, self.hclg_path, str(max_batch_size), str(cuda_memory_prop), str(minibatch_size), self.resources.model_name, output_folder ],
+            #                    check=True)
 
             # 5 - populate the chunk string with the trascription and starting time of each segment (should retrive this information from decodings or lattices)
             print("Create Gentle data structures with decoded text from Kaldi ")

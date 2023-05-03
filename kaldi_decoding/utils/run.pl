@@ -284,13 +284,6 @@ for ($jobid = $jobstart; $jobid <= $jobend; $jobid++) {
     print B "( " . $cmd . ") 2>>$logfile >> $logfile";
     close(B);                   # If there was an error, exit status is in $?
 
-    #catch  error
-    open (Log, "<", $logfile) || die "run.pl: no logfile $logfile:$!";
-    while (my $line=<Log>) {
-       if($line =~ /^ERROR /) {die "run.pl: batched-wav-nnet3-cuda failed with following error: $line";}
-    }
-    close Log;
-
     print "\n";
     $ret = $?;
     $lowbits = $ret & 127;
