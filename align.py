@@ -32,11 +32,11 @@ parser.add_argument(
         '--lang', default="en",
         help='language of alignment (en, en_gentle fr, es, ar, ru, zh)')
 parser.add_argument(
-        '--gpu_id', type=str, default="0",
-        help='gpu id to use')
+        '--gpu_id', type=str, default="-1",
+        help='gpu id to use. Use -1 to specify CPU decoding. Avoid using the --device argument which will be remove in the future. (This argument should be called in the future device_id)')
 parser.add_argument(
         '--device', type=str, default="cpu",
-        help='Decoder type between cpu and gpu one')
+        help='WARNING: Argument Deprecated (just use the gpu_id argument to specify the device) Decoder type between cpu and gpu one')
 parser.add_argument(
         '--max_batch_size', type=int, default=128,
         help='The maximum batch size to be used by the decoder. This is also the number of lanes in the CudaDecoder. Larger = Faster and more GPU memory used')
@@ -65,6 +65,14 @@ decoder_type = args.device
 max_batch_size = args.max_batch_size
 cuda_memory_prop = args.cuda_memory_proportion
 minibatch_size = args.minibatch_size
+
+
+#This dummy logic is used to remove the need to use the -device argument in the interface by just overwriting the decoder_type variable.
+#The user can just use the gpu_id to specify the usage of cpu with -1 or a specific gpu index. This support backward compatibility for scripts that use the 'device' argument too.
+if gpu_id == "-1":
+    decoder_type = "cpu"
+else:
+    decoder_type = "gpu"
 
 #extract the path to the folder where decoding logs will be generet
 output_folder = os.path.dirname(os.path.abspath(args.output))
